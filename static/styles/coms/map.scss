@@ -1,0 +1,70 @@
+.map-show {
+  width: 800px;
+  height: 100%;
+  margin: 3px auto;
+
+  .ceil {
+    width: 80px;
+    height: 75px;
+    box-sizing: border-box;
+    float: left;
+    border: 1px solid #cccccc;
+    text-align: center;
+  }
+
+  .wall {
+    text-align: center;
+    &:after {
+      content: '墙'
+    }
+  }
+
+  .redDoor {
+    text-align: center;
+    &:after {
+      content: '红门'
+    }
+  }
+
+  .greenDoor {
+    text-align: center;
+    &:after {
+      content: '绿门'
+    }
+  }
+
+  .blueDoor {
+    text-align: center;
+    &:after {
+      content: '蓝门'
+    }
+  }
+
+  .stairway_up{
+    text-align: center;
+    &:after {
+      content: '楼梯_上'
+    }
+  }
+
+  .stairway_down{
+    text-align: center;
+    &:after {
+      content: '楼梯_下'
+    }
+  }
+
+  .statue{
+    text-align: center;
+    &:after {
+      content: '雕像'
+    }
+  }
+
+  .openDoor {
+    color: black;
+  }
+  .closeDoor {
+    color: red;
+  }
+}
