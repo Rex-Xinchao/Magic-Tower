@@ -16,9 +16,9 @@
 <script>
 import Move from '../mixins/move' // 移动模块
 import Battle from '../mixins/battle' // 战斗模块
-import MonsterManual from '../../../../../static/dic/monster/monsterManual' // 怪物图鉴
-import BuildingManual from '../../../../../static/dic/map/buildingManual' // 建筑物模块
-import Tower from '../../../../../static/dic/map/tower' // 楼层信息
+import MonsterManual from '@static/dic/monster/monsterManual' // 怪物图鉴
+import BuildingManual from '@static/dic/map/buildingManual' // 建筑物模块
+import Tower from '@static/dic/map/tower' // 楼层信息
 import { mapGetters } from 'vuex'
 // import layer from "../../../store/modules/layer"
 
@@ -95,5 +95,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    @import "../../../../../static/styles/coms/map";
+    @import "@style/coms/map";
 </style>

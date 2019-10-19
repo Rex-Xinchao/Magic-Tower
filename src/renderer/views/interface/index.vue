@@ -20,5 +20,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    @import "../../../../static/styles/interface";
+    @import "@style/interface";
 </style>

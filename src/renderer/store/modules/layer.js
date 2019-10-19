@@ -1,4 +1,4 @@
-import Tower from '../../../../static/dic/map/tower'
+import Tower from '@static/dic/map/tower'
 
 const layer = {
   state: {

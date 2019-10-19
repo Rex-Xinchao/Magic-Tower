@@ -70,5 +70,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    @import "../../../../../static/styles/coms/siderBar";
+    @import "@style/coms/siderBar";
 </style>

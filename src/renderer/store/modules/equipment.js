@@ -1,4 +1,4 @@
-import Equipment from '../../../../static/dic/item/equipmentManual'
+import Equipment from '@static/dic/item/equipmentManual'
 
 const equipment = {
   state: {
