@@ -130,7 +130,7 @@ let rendererConfig = {
                 removeAttributeQuotes: true,
                 removeComments: true
             },
-            templateParameters(compilation, assets, options) {
+            templateParameters(compilation, assets, options) { // 解决progress报错的异常
                 return {
                     compilation: compilation,
                     webpack: compilation.getStats().toJson(),

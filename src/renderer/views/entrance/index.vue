@@ -5,6 +5,7 @@
             <h1 class="title">Magic Tower</h1>
             <div class="btn-container">
                 <button @click="gameStart">游戏开始</button>
+                <button @click="fullscreen">{{isFullScreen ? '退出全屏' : '全屏'}}</button>
                 <button @click="gameOver">退出游戏</button>
             </div>
         </div>
@@ -12,20 +13,62 @@
 </template>
 
 <script>
-import StarShip from './mixins/starShip'
+  import StarShip from './mixins/starShip'
 
-export default {
-  name: 'index',
-  mixins: [ StarShip ],
-  methods: {
-    gameStart () {
-      this.$router.push('/interface')
+  const {ipcRenderer} = require('electron')
+
+  export default {
+    name: 'index',
+    data () {
+      return {
+        isFullScreen: false
+      }
     },
-    gameOver () {
-      window.close()
+    mixins: [StarShip],
+    methods: {
+      gameStart () {
+         this.$router.push('/interface')
+//        ipcRenderer.send('checkForUpdate')
+      },
+      gameOver () {
+        ipcRenderer.send('close')
+      },
+      fullscreen () {
+        if (this.isFullScreen) {
+          ipcRenderer.send('exitFullScreen')
+        } else {
+          ipcRenderer.send('fullScreen')
+        }
+        this.isFullScreen = !this.isFullScreen
+      },
+      checkAndStart () {
+        ipcRenderer.on('message', (event, text) => {
+          console.log(text)
+          this.tips = text
+        })
+        ipcRenderer.on('downloadProgress', (event, progressObj) => {
+          console.log(progressObj)
+          this.downloadPercent = progressObj.percent || 0
+        })
+        ipcRenderer.on('isUpdateNow', () => {
+          ipcRenderer.send('isUpdateNow')
+        })
+      },
+      fileTest () {
+        this.Utils.setJson('name', 'RexSun', function (e) {
+          console.log(e)
+        })
+        this.Utils.getJson('name', function (e) {
+          console.log(e)
+        })
+        this.Utils.writeFile('new.txt', {name: '123'})
+        this.Utils.readFile('old.txt')
+      }
+    },
+    mounted () {
+      this.checkAndStart()
     }
   }
-}
 </script>
 
 <style lang="scss" scoped>
