@@ -27,8 +27,8 @@
     mixins: [StarShip],
     methods: {
       gameStart () {
-         this.$router.push('/interface')
-//        ipcRenderer.send('checkForUpdate')
+        this.$router.push('/interface')
+        // ipcRenderer.send('checkForUpdate')
       },
       gameOver () {
         ipcRenderer.send('close')
