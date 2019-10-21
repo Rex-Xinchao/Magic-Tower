@@ -11,7 +11,8 @@ function GetScreenPx () {
 
 GetScreenPx.prototype = {
   method_screenPx: function () {
-    this.mainStyle.innerHTML = 'html {font-size: ' + parseFloat(this.w / 19.2) + 'px}'
+    // 更具屏幕设置全屏样式
+    this.mainStyle.innerHTML = 'html {font-size: 12px}'
   }
 }
 

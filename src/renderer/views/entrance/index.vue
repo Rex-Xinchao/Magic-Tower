@@ -28,7 +28,6 @@
     methods: {
       gameStart () {
         this.$router.push('/interface')
-        // ipcRenderer.send('checkForUpdate')
       },
       gameOver () {
         ipcRenderer.send('close')
@@ -42,9 +41,9 @@
         this.isFullScreen = !this.isFullScreen
       },
       checkAndStart () {
+        ipcRenderer.send('checkForUpdate')
         ipcRenderer.on('message', (event, text) => {
           console.log(text)
-          this.tips = text
         })
         ipcRenderer.on('downloadProgress', (event, progressObj) => {
           console.log(progressObj)
