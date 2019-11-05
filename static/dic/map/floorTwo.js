@@ -45,6 +45,18 @@ function getDoms () {
     8: [],
     9: [3]
   }
+  const stairwayUpMap = {
+    0: [0],
+    1: [],
+    2: [],
+    3: [],
+    4: [],
+    5: [],
+    6: [],
+    7: [],
+    8: [],
+    9: [3]
+  }
   for (let i = 0; i < 10; i++) {
     for (let j = 0; j < 10; j++) {
       let obj = { x: i, y: j, type: 'building', id: 0 }
@@ -59,6 +71,10 @@ function getDoms () {
       if (stairwayDownMap[i].indexOf(j) >= 0) {
         obj.type = 'building'
         obj.id = 15 // 楼梯
+      }
+      if (stairwayUpMap[i].indexOf(j) >= 0) {
+        obj.type = 'building'
+        obj.id = 14 // 楼梯
       }
       list.push(obj)
     }

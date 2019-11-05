@@ -2,13 +2,14 @@
     <div class="map-show">
         <div class="ceil"
              v-for="(item, index) in mapList"
-             :key="index"
-             :class="getClass(item)">
-            <div class="monster"
-                 v-if="item.type === 'monster' && !item.IsDead">
-                {{item.Name}}
+             :key="index">
+            <div class="map-item" :class="getClass(item)">
+                <div class="monster"
+                     v-if="item.type === 'monster' && !item.IsDead">
+                    {{item.Name}}
+                </div>
+                <div class="hero" v-if="index === rolePosition"></div>
             </div>
-            <div v-if="index === rolePosition">Hero</div>
         </div>
     </div>
 </template>
