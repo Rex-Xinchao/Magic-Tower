@@ -27,6 +27,7 @@ const move = {
     // 角色移动
     move (nextPosition) {
       let move = true
+      console.log(nextPosition)
       if (nextPosition < 0 || nextPosition > this.mapLength) { // 超出范围
         move = false
       } else if (this.mapDetails[nextPosition].type === 'building') { // 存在建筑物
@@ -61,11 +62,11 @@ const move = {
         let nextPosition = this.rolePosition + this.rowIndex
         this.move(nextPosition) && (this.rolePosition = nextPosition)
       }
-      if (e.keyCode === 37) { // 向左
+      if (e.keyCode === 37 && this.rolePosition % 10 !== 0) { // 向左
         let nextPosition = this.rolePosition - this.colIndex
         this.move(nextPosition) && (this.rolePosition = nextPosition)
       }
-      if (e.keyCode === 39) { // 向右
+      if (e.keyCode === 39 && this.rolePosition % 10 !== 9) { // 向右
         let nextPosition = this.rolePosition + this.colIndex
         this.move(nextPosition) && (this.rolePosition = nextPosition)
       }
