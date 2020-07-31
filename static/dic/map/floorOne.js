@@ -1,31 +1,61 @@
+import buildingManual from './buildingManual'
+import monsterManual from '../monster/monsterManual'
+
+const buildingList = [
+  ['02', '02', '01', '03', '00', '00', '03', '01', '02', '02'],
+  ['02', '02', '01', '03', '00', '00', '03', '01', '02', '02'],
+  ['02', '02', '01', '03', '00', '00', '03', '01', '02', '02'],
+  ['02', '02', '01', '03', '00', '00', '03', '01', '02', '02'],
+  ['02', '02', '01', '03', '00', '00', '03', '01', '02', '02'],
+  ['02', '02', '01', '03', '00', '00', '03', '01', '02', '02'],
+  ['02', '02', '01', '03', '00', '00', '03', '01', '02', '02'],
+  ['02', '02', '01', '03', '00', '00', '03', '01', '02', '02'],
+  ['02', '02', '01', '03', '00', '00', '03', '01', '02', '02'],
+  ['02', '02', '01', '03', '00', '14', '03', '01', '02', '02']
+]
+
+const monsterList = [
+  ['00', '00', '00', '00', '00', '00', '00', '00', '00', '00'],
+  ['00', '00', '00', '00', '00', '00', '00', '00', '00', '00'],
+  ['00', '00', '00', '00', '00', '00', '00', '00', '00', '00'],
+  ['00', '00', '00', '00', '00', '00', '00', '00', '00', '00'],
+  ['00', '00', '00', '00', '00', '00', '00', '00', '00', '00'],
+  ['00', '00', '00', '00', '00', '00', '00', '00', '00', '00'],
+  ['00', '00', '00', '00', '00', '00', '00', '00', '00', '00'],
+  ['00', '00', '00', '00', '00', '00', '00', '00', '00', '00'],
+  ['00', '00', '00', '00', '00', '01', '00', '00', '00', '00'],
+  ['00', '00', '00', '00', '99', '00', '00', '00', '00', '00']
+]
+
 const floorOne = {
-  mapDoms: getDoms(),
   name: '普通一层',
   index: 'FloorOne',
   next: 'FloorTwo',
   last: null,
-  originPosition: 5
-}
-
-function getDoms () {
-  let list = []
-  for (let i = 0; i < 10; i++) {
-    for (let j = 0; j < 10; j++) {
-      let obj = { x: i, y: j, type: 'building', id: 0 }
-      if (j === 2 || j === 7) {
-        obj.type = 'building'
-        obj.id = 1 // 墙
-      } else if (j === 3 || j === 6) {
-        obj.type = 'building'
-        obj.id = 3 // 雕像
-      } else if (i === 9 && j === 5) {
-        obj.type = 'building'
-        obj.id = 14 // 楼梯
+  originPosition: [5, 0],
+  mapDoms: () => {
+    for (let i = 0; i < 10; i++) {
+      for (let j = 0; j < 10; j++) {
+        const Building = buildingManual[buildingList[i][j]]
+        const Monster = monsterManual[monsterList[i][j]]
+        const position = { x: j, y: i }
+        const building = new Building()
+        const monster = {
+          isExist: false,
+          isDead: false,
+          monsterDetail: null
+        }
+        if (Monster) {
+          const monsterDetail = new Monster()
+          monster.isExist = true
+          monster.isDead = false
+          monster.monsterDetail = monsterDetail
+        }
+        buildingList[i][j] = { ...position, ...building, ...monster }
       }
-      list.push(obj)
     }
+    return buildingList
   }
-  return list
 }
 
 export default floorOne
