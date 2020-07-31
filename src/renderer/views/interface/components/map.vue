@@ -3,7 +3,7 @@
     <div class="line" v-for="(lineList, y) in mapList" :key="y">
       <div class="ceil" v-for="(item, x) in lineList" :key="x">
         <div class="map-item" :class="getClass(item)">
-          <div class="monster" v-if="item.isExist && !item.isDead">
+          <div class="monster" v-if="item.isExist && !item.isDead" :title="getTitle(item.monsterDetail)">
             {{ item.monsterDetail && item.monsterDetail.Name }}
           </div>
           <div class="hero" v-if="rolePosition[0] === x && rolePosition[1] === y"></div>
@@ -63,6 +63,12 @@ export default {
           return item.class
         }
       }
+    },
+    getTitle(monster) {
+      if (monster) {
+        return `怪物名称：${monster.Name}\n生命：${monster.Health}\n物攻：${monster.Attack}\n物防：${monster.Defense}\n魔攻：${monster.MagicAttack}\n魔防：${monster.MagicDefense}\n灵巧：${monster.Dexterous}\n幸运：${monster.Luck}\n`
+      }
+      return ''
     }
   },
   mounted() {
