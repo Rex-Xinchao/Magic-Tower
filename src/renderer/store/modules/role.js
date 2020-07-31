@@ -23,55 +23,61 @@ const role = {
     }
   },
   getters: {
-    hero: state => state.attribute
+    hero: (state) => state.attribute
   },
   mutations: {
-    levelUp (state) {
+    levelUp(state) {
       state.attribute.Level++
       state.attribute.Experience -= state.attribute.NextLevelExperience
-      state.attribute.NextLevelExperience = state.attribute.NextLevelExperience * 2
+      state.attribute.NextLevelExperience =
+        state.attribute.NextLevelExperience * 2
       state.attribute.Health += 10
       state.attribute.Attack += 1
       state.attribute.Defense += 1
       state.attribute.MagicAttack += 1
       state.attribute.MagicDefense += 1
     },
-    addHealth (state, Health) {
+    addHealth(state, Health) {
       state.attribute.Health += Health
     },
-    delHealth (state, Health) {
+    delHealth(state, Health) {
       state.attribute.Health -= Health
     }
   },
   actions: {
-    setExperience (store, Experience) {
+    setExperience(store, Experience) {
       store.state.attribute.Experience += Experience
-      if (store.state.attribute.Experience >= store.state.attribute.NextLevelExperience) {
+      if (
+        store.state.attribute.Experience >=
+        store.state.attribute.NextLevelExperience
+      ) {
         // 升级
-        store.state.attribute.Experience = store.state.attribute.Experience - store.state.attribute.NextLevelExperience
+        store.state.attribute.Experience =
+          store.state.attribute.Experience -
+          store.state.attribute.NextLevelExperience
         store.state.level++
         store.state.NextLevelExperience = store.state.NextLevelExperience * 2
       }
     },
-    setHealth (store, Health) {
+    setHealth(store, Health) {
       store.state.attribute.Health = Health
     },
-    setAttack (store, Attack) {
+    setAttack(store, Attack) {
       store.state.attribute.Attack = Attack
     },
-    setDefense (store, Defense) {
+    setDefense(store, Defense) {
       store.state.attribute.Defense = Defense
     },
-    setMagicAttack (store, MagicAttack) {
+    setMagicAttack(store, MagicAttack) {
       store.state.attribute.MagicAttack = MagicAttack
     },
-    setMagicDefense (store, MagicDefense) {
+    setMagicDefense(store, MagicDefense) {
       store.state.attribute.MagicDefense = MagicDefense
     },
-    setDexterous (store, Dexterous) {
+    setDexterous(store, Dexterous) {
       store.state.attribute.Dexterous = Dexterous
     },
-    setLuck (store, Luck) {
+    setLuck(store, Luck) {
       store.state.attribute.Luck = Luck
     }
   }
