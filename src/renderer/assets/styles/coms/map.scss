@@ -17,14 +17,14 @@
   .hero {
     width: 100%;
     height: 100%;
-    background: url("~/../src/renderer/assets/images/hero.png");
+    background: url("~@/assets/images/hero.png");
     background-size: contain;
     background-repeat: no-repeat;
   }
 
   .wall {
     text-align: center;
-    background: url("~/../src/renderer/assets/images/wall.png");
+    background: url("~@/assets/images/wall.png");
   }
 
   .redDoor {
@@ -64,7 +64,7 @@
 
   .statue {
     text-align: center;
-    background: url("~/../src/renderer/assets/images/statue.png");
+    background: url("~@/assets/images/statue.png");
     background-size: contain;
     background-repeat: no-repeat;
   }
