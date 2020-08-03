@@ -1,6 +1,6 @@
-import buildingManual from './buildingManual'
-import monsterManual from '../monster/monsterManual'
-import npcManual from '../monster/npcManual'
+import buildingManual from '../item/buildingManual'
+import monsterManual from '../npc/monsterManual'
+import npcManual from '../npc/characterManual'
 
 const buildingList = [
   ['02', '02', '01', '03', '00', '00', '03', '01', '02', '02'],

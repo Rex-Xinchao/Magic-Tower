@@ -1,5 +1,5 @@
-import buildingManual from './buildingManual'
-import monsterManual from '../monster/monsterManual'
+import buildingManual from '../item/buildingManual'
+import monsterManual from '../npc/monsterManual'
 
 const buildingList = [
   ['14', '00', '00', '00', '00', '00', '00', '00', '00', '00'],
