@@ -27,6 +27,10 @@
     background: url("~@/assets/images/wall.png");
   }
 
+  .river {
+    background: linear-gradient(#409EFF, #409EFF);
+  }
+
   .redDoor {
     text-align: center;
     &:after {

@@ -4,9 +4,9 @@ const item = {
   state: {
     items: {
       Money: 0, // 金钱： 可以购买属性和道具
-      RedKey: 1, // 红钥匙数量，用于开启红色门
-      GreenKey: 0, // 绿钥匙数量，用于开启绿色门
-      BlueKey: 5 // 蓝钥匙数量，用于开启蓝色门
+      RedKey: 10, // 红钥匙数量，用于开启红色门
+      GreenKey: 10, // 绿钥匙数量，用于开启绿色门
+      BlueKey: 10 // 蓝钥匙数量，用于开启蓝色门
     },
     tools: []
   },
@@ -53,13 +53,13 @@ const item = {
       store.state.items.Money = Money
     },
     setRedKey(store, RedKey) {
-      store.state.items.RedKey = RedKey
+      store.state.items.RedKey += RedKey
     },
     setGreenKey(store, GreenKey) {
-      store.state.items.GreenKey = GreenKey
+      store.state.items.GreenKey += GreenKey
     },
     setBlueKey(store, BlueKey) {
-      store.state.items.BlueKey = BlueKey
+      store.state.items.BlueKey += BlueKey
     }
   }
 }

@@ -1,13 +1,25 @@
 const npcManual = {
   '01': function() {
-    this.Name = '消耗品商人'
-    this.description = '你要看一下我的大宝贝吗?'
+    const _this = this
+    this.Name = '天使'
+    this.description = '菜逼勇者?'
+    this.finshed = false
     this.dialogue = function(vm) {
       return dialogue(vm)
     }
     function* dialogue(vm) {
       yield {
-        content: '欢迎冒险家，你要买些什么吗？',
+        content: '你醒了，勇者？',
+        selectList: null,
+        next: true
+      }
+      yield {
+        content: '公主还在塔里，快去营救她吧！',
+        selectList: null,
+        next: true
+      }
+      yield {
+        content: '我这里有三把钥匙，你先拿去，要珍惜使用。',
         selectList: null,
         next: true
       }
@@ -15,34 +27,24 @@ const npcManual = {
         content: null,
         selectList: [
           {
-            select: '生命药水(小)：50金币',
+            select: '收下钥匙',
             effect: () => {
-              if (vm.$store.state.role.item.Money >= 50) {
-                vm.$store.commit('setMoney', '-50')
-                vm.$store.commit('getTool', 'HealingPotion_Small')
+              if (_this.finshed) {
+                _this.end = `我已经没有钥匙给你了`
               } else {
-                console.info('金币不足')
+                vm.$store.dispatch('setRedKey', 1)
+                vm.$store.dispatch('setBlueKey', 1)
+                vm.$store.dispatch('setGreenKey', 1)
+                vm.close()
               }
-            }
-          },
-          {
-            select: '生命药水(中)：100金币',
-            effect: () => {
-              if (vm.$store.state.role.item.Money >= 100) {
-                vm.$store.commit('setMoney', '-100')
-                vm.$store.commit('getTool', 'HealingPotion_Mid')
-              } else {
-                console.info('金币不足')
-              }
-            }
-          },
-          {
-            select: '直接离开',
-            effect: () => {
-              vm.close()
             }
           }
         ],
+        next: false
+      }
+      yield {
+        content: _this.end,
+        selectList: null,
         next: false
       }
     }
@@ -89,6 +91,65 @@ const npcManual = {
       yield {
         content: _this.end,
         selectList: null,
+        next: false
+      }
+    }
+  },
+  '03': function() {
+    this.Name = '消耗品商人'
+    this.description = '你要看一下我的大宝贝吗?'
+    this.dialogue = function(vm) {
+      return dialogue(vm)
+    }
+    function* dialogue(vm) {
+      yield {
+        content: '欢迎冒险家，你要买些什么吗？',
+        selectList: null,
+        next: true
+      }
+      yield {
+        content: null,
+        selectList: [
+          {
+            select: '增加800生命：25金币',
+            effect: () => {
+              if (vm.$store.state.role.item.Money >= 25) {
+                vm.$store.commit('setMoney', '-25')
+                vm.$store.dispatch('setHealth', 800)
+              } else {
+                console.info('金币不足')
+              }
+            }
+          },
+          {
+            select: '增加4点攻击：25金币',
+            effect: () => {
+              if (vm.$store.state.role.item.Money >= 25) {
+                vm.$store.commit('setMoney', '-25')
+                vm.$store.dispatch('setAttack', 4)
+              } else {
+                console.info('金币不足')
+              }
+            }
+          },
+          {
+            select: '增加4点防御：25金币',
+            effect: () => {
+              if (vm.$store.state.role.item.Money >= 25) {
+                vm.$store.commit('setMoney', '-25')
+                vm.$store.dispatch('setDefense', 4)
+              } else {
+                console.info('金币不足')
+              }
+            }
+          },
+          {
+            select: '直接离开',
+            effect: () => {
+              vm.close()
+            }
+          }
+        ],
         next: false
       }
     }
