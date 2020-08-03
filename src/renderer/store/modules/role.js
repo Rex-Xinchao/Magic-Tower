@@ -79,6 +79,18 @@ const role = {
     },
     setLuck(store, Luck) {
       store.state.attribute.Luck = Luck
+    },
+    setMoney(store, Money) {
+      store.state.item.Money += Money
+    },
+    setRedKey(store, RedKey) {
+      store.state.item.RedKey += RedKey
+    },
+    setGreenKey(store, GreenKey) {
+      store.state.item.GreenKey += GreenKey
+    },
+    setBlueKey(store, BlueKey) {
+      store.state.item.BlueKey += BlueKey
     }
   }
 }

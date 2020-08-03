@@ -38,6 +38,10 @@ const move = {
           this.role.Health = Health
           move = false // 打不过，禁止移动
         }
+      } else if (currentMap.isNpcExist) {
+        // 存在npc
+        this.showDialogue(currentMap.npcDetail)
+        move = false
       } else {
         // 存在建筑物
         if (UU_REMOVE_LIST.indexOf(currentMap.class) >= 0) {

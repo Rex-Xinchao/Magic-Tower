@@ -6,10 +6,14 @@
           <div class="monster" v-if="item.isExist && !item.isDead" :title="getTitle(item.monsterDetail)">
             {{ item.monsterDetail && item.monsterDetail.Name }}
           </div>
+          <div class="monster" v-if="item.isNpcExist" :title="item.npcDetail.description">
+            {{ item.npcDetail && item.npcDetail.Name }}
+          </div>
           <div class="hero" v-if="rolePosition[0] === x && rolePosition[1] === y"></div>
         </div>
       </div>
     </div>
+    <Dialogue ref="dialogue"></Dialogue>
   </div>
 </template>
 
@@ -17,6 +21,7 @@
 import Move from '../mixins/move' // 移动模块
 import Battle from '../mixins/battle' // 战斗模块
 import Tower from '@static/dic/map/tower' // 楼层信息
+import Dialogue from './dialogue'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -26,6 +31,7 @@ export default {
       mapList: []
     }
   },
+  components: { Dialogue },
   computed: {
     ...mapGetters(['hero', 'layerIndex', 'items'])
   },
@@ -69,17 +75,13 @@ export default {
         return `怪物名称：${monster.Name}\n生命：${monster.Health}\n物攻：${monster.Attack}\n物防：${monster.Defense}\n魔攻：${monster.MagicAttack}\n魔防：${monster.MagicDefense}\n灵巧：${monster.Dexterous}\n幸运：${monster.Luck}\n`
       }
       return ''
+    },
+    showDialogue(npc) {
+      this.$refs.dialogue.showDialog(npc)
     }
   },
   mounted() {
     this.initMap()
-    // todo 测试使用，需要删除
-    this.$store.commit('getEquipment', 'brokenSword')
-    this.$store.commit('getTool', 'HealingPotion_Small')
-    this.$store.commit('getTool', 'HealingPotion_Small')
-    this.$store.commit('getEquipment', 'stone')
-    this.$store.commit('equip', 'brokenSword')
-    this.$store.commit('equip', 'stone')
   }
 }
 </script>
