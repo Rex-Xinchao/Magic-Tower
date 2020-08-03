@@ -3,69 +3,68 @@
   height: 100%;
   margin: 3px auto;
 
-  .ceil, .map-item {
+  .ceil,
+  .map-item {
     width: 80px;
     height: 75px;
     box-sizing: border-box;
     float: left;
     text-align: center;
-    background: linear-gradient(45deg,grey 25%,transparent 25%),
-    linear-gradient(-45deg,grey 25%,transparent 25%),
-    linear-gradient(45deg,transparent 75%,grey 75%),
-    linear-gradient(-45deg,transparent 75%,grey 75%);
+    background: linear-gradient(45deg, grey 25%, transparent 25%), linear-gradient(-45deg, grey 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, grey 75%), linear-gradient(-45deg, transparent 75%, grey 75%);
   }
 
   .hero {
     width: 100%;
     height: 100%;
-    background: url("~/static/images/hero.png");
+    background: url("~/../src/renderer/assets/images/hero.png");
     background-size: contain;
     background-repeat: no-repeat;
   }
 
   .wall {
     text-align: center;
-    background: url("~/static/images/wall.png");
+    background: url("~/../src/renderer/assets/images/wall.png");
   }
 
   .redDoor {
     text-align: center;
     &:after {
-      content: '红门'
+      content: "红门";
     }
   }
 
   .greenDoor {
     text-align: center;
     &:after {
-      content: '绿门'
+      content: "绿门";
     }
   }
 
   .blueDoor {
     text-align: center;
     &:after {
-      content: '蓝门'
+      content: "蓝门";
     }
   }
 
   .stairway_up {
     text-align: center;
     &:after {
-      content: '楼梯_上'
+      content: "楼梯_上";
     }
   }
 
   .stairway_down {
     text-align: center;
     &:after {
-      content: '楼梯_下'
+      content: "楼梯_下";
     }
   }
 
   .statue {
     text-align: center;
-    background: url("~/static/images/statue.png");
+    background: url("~/../src/renderer/assets/images/statue.png");
     background-size: contain;
     background-repeat: no-repeat;
   }

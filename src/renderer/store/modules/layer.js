@@ -1,4 +1,4 @@
-import Tower from '@static/dic/map/tower'
+import Tower from '@lib/dic/map/tower'
 
 const layer = {
   state: {
@@ -8,18 +8,18 @@ const layer = {
     layerMap: {}
   },
   getters: {
-    layerName: state => state.layerName,
-    layerIndex: state => state.layerIndex
+    layerName: (state) => state.layerName,
+    layerIndex: (state) => state.layerIndex
   },
   mutations: {
-    nextFlour (state, data) {
+    nextFlour(state, data) {
       state.map[state.layerIndex] = data.mapList
       state.layerMap[state.layerIndex] = { originPosition: data.rolePosition }
       let nextLayer = Tower[state.layerIndex].next
       state.layerIndex = Tower[nextLayer].index
       state.layerName = Tower[nextLayer].name
     },
-    lastFlour (state, data) {
+    lastFlour(state, data) {
       state.map[state.layerIndex] = data.mapList
       state.layerMap[state.layerIndex] = { originPosition: data.rolePosition }
       let lastLayer = Tower[state.layerIndex].last

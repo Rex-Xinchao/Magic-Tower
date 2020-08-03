@@ -20,7 +20,7 @@
 <script>
 import Move from '../mixins/move' // 移动模块
 import Battle from '../mixins/battle' // 战斗模块
-import Tower from '@static/dic/map/tower' // 楼层信息
+import Tower from '@lib/dic/map/tower' // 楼层信息
 import Dialogue from './dialogue'
 import { mapGetters } from 'vuex'
 

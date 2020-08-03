@@ -1,4 +1,4 @@
-import Tool from '@static/dic/item/toolManual'
+import Tool from '@lib/dic/item/toolManual'
 
 const item = {
   state: {

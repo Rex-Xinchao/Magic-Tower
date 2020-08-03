@@ -1,4 +1,4 @@
-import Equipment from '@static/dic/item/equipmentManual'
+import Equipment from '@lib/dic/item/equipmentManual'
 
 const equipment = {
   state: {
@@ -14,54 +14,62 @@ const equipment = {
     equipped: []
   },
   getters: {
-    equipments: state => state.equipments,
-    equipped: state => state.equipped,
-    addition: state => state.addition
+    equipments: (state) => state.equipments,
+    equipped: (state) => state.equipped,
+    addition: (state) => state.addition
   },
   mutations: {
-    getEquipment (state, equipmentId) {
+    getEquipment(state, equipmentId) {
       const equipment = Equipment[equipmentId]
       state.equipments = [...state.equipments, equipment]
     },
-    delEquipment (state, equipmentId) {
+    delEquipment(state, equipmentId) {
       let equipments = []
       let equipped = []
-      state.equipments.forEach(e => {
+      state.equipments.forEach((e) => {
         e.Id === equipmentId || equipments.push(e)
       })
-      state.equipped.forEach(e => {
+      state.equipped.forEach((e) => {
         e.Id === equipmentId || equipped.push(e)
       })
       state.equipments = equipments
       state.equipped = equipped
     },
-    equip (state, equipmentId) {
+    equip(state, equipmentId) {
       const equipment = Equipment[equipmentId]
       if (state.equipped.length <= 6 && state.equipments.length > 0) {
         let equipments = []
         let equipped = [...state.equipped, equipment]
         for (let i = 0; i < state.equipments.length; i++) {
-          state.equipments[i].Id === equipment.Id || equipments.push(state.equipments[i])
+          state.equipments[i].Id === equipment.Id ||
+            equipments.push(state.equipments[i])
         }
         state.equipped = equipped
         state.equipments = equipments
         this.commit('calcAddition', '')
       }
     },
-    drop (state, equipmentId) {
+    drop(state, equipmentId) {
       const equipment = Equipment[equipmentId]
       let equipments = [...state.equipments, equipment]
       let equipped = []
-      state.equipped.forEach(e => {
+      state.equipped.forEach((e) => {
         e.Id === equipment.Id || equipped.push(e)
       })
       state.equipments = equipments
       state.equipped = equipped
       this.commit('calcAddition', '')
     },
-    calcAddition (state) {
-      let [Attack, Defense, MagicAttack, MagicDefense, Dexterous, Luck] = [0, 0, 0, 0, 0, 0]
-      state.equipped.forEach(e => {
+    calcAddition(state) {
+      let [Attack, Defense, MagicAttack, MagicDefense, Dexterous, Luck] = [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+      state.equipped.forEach((e) => {
         e.Attack && (Attack += e.Attack)
         e.Defense && (Attack += e.Defense)
         e.MagicAttack && (Attack += e.MagicAttack)
