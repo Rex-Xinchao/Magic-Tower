@@ -5,7 +5,7 @@ const Battle = {
   // 战斗系统
   data() {
     return {
-      log: '', // 战斗日志
+      log: [], // 战斗日志
       turn: 1 // 回合数
     }
   },
@@ -21,13 +21,13 @@ const Battle = {
         this.turnLogging()
         this.battle()
         this.resultLogging()
+        this.$refs.battleLog.showDialog(this.log)
       }
-      console.log(this.log) // 输出战斗日志
       this.battleEnd()
     },
     reset() {
       // 重置
-      this.log = ''
+      this.log = []
       this.turn = 1
     },
     battle() {
@@ -125,28 +125,27 @@ const Battle = {
     },
     // 日志记录
     turnLogging() {
-      this.log += `第${this.turn}回合：\n`
+      this.log.push(`第${this.turn}回合：\n`)
       this.turn++
     },
     attackLogging(RoleOne, RoleTwo, harm) {
-      this.log += `${RoleOne.Name} 攻击了 ${
-        RoleTwo.Name
-      } 1下，造成了${harm}点伤害,`
-      if (RoleTwo.Health > 0) {
-        this.log += `${RoleTwo.Name} 还剩下${RoleTwo.Health}点生命\n`
-      } else {
-        this.log += `${RoleTwo.Name} 死亡\n`
-      }
+      let txt =
+        RoleTwo.Health > 0
+          ? `${RoleTwo.Name} 还剩下${RoleTwo.Health}点生命。\n`
+          : `${RoleTwo.Name} 死亡。\n`
+      this.log.push(
+        `${RoleOne.Name} 攻击了 ${RoleTwo.Name} 1下，造成了${harm}点伤害,${txt}`
+      )
     },
     addEquipmentEffectLog(name, effect) {
-      this.log += `${name}效果发动成功，${effect}。\n`
+      this.log.push(`${name}效果发动成功，${effect}。\n`)
     },
     resultLogging() {
       if (this.monster.Health <= 0) {
-        this.log += `${this.hero.Name}战胜了${this.monster.Name},勇者获胜`
+        this.log.push(`${this.hero.Name}战胜了${this.monster.Name},勇者获胜。`)
       }
       if (this.hero.Health <= 0) {
-        this.log += `${this.monster.Name}击败了${this.hero.Name}，游戏结束`
+        this.log.push(`${this.monster.Name}击败了${this.hero.Name}，游戏结束。`)
       }
     }
   }

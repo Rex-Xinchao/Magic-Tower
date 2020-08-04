@@ -14,6 +14,7 @@
       </div>
     </div>
     <Dialogue ref="dialogue"></Dialogue>
+    <BattleLog ref="battleLog"></BattleLog>
   </div>
 </template>
 
@@ -22,6 +23,7 @@ import Move from '../mixins/move' // 移动模块
 import Battle from '../mixins/battle' // 战斗模块
 import Tower from '@lib/dic/map/tower' // 楼层信息
 import Dialogue from './dialogue'
+import BattleLog from './battleLog'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -31,7 +33,7 @@ export default {
       mapList: []
     }
   },
-  components: { Dialogue },
+  components: { Dialogue, BattleLog },
   computed: {
     ...mapGetters(['hero', 'layerIndex', 'items'])
   },

@@ -10,6 +10,8 @@
     padding: 20px 20px;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
+    max-height: 60vh;
+    overflow-y: scroll;
 }
 
 .name {
@@ -59,4 +61,20 @@
     height: 24px;
     line-height: 24px;
     cursor: pointer;
+}
+
+.battle-log-container {
+    width: 100%;
+    height: auto;
+    font-size: 14px;
+    line-height: 18px;
+    white-space: normal;
+    margin-top: 12px;
+
+    p {
+        -webkit-margin-before: 0.2em;
+        -webkit-margin-after: 0.2em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+    }
 }
