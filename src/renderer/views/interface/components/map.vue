@@ -9,6 +9,9 @@
           <div class="monster" v-if="item.isNpcExist" :title="item.npcDetail.description">
             {{ item.npcDetail && item.npcDetail.Name }}
           </div>
+          <div class="item" v-if="item.isToolExist" :title="item.toolDetail.Instruction">
+            {{ item.toolDetail && item.toolDetail.Name }}
+          </div>
           <div class="hero" v-if="rolePosition[0] === x && rolePosition[1] === y"></div>
         </div>
       </div>

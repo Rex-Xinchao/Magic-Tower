@@ -46,6 +46,15 @@ const item = {
         }
       })
       state.tools = tools
+    },
+    setRedKey(state, num) {
+      state.items.RedKey += num
+    },
+    setGreenKey(state, num) {
+      state.items.GreenKey += num
+    },
+    setBlueKey(state, num) {
+      state.items.BlueKey += num
     }
   },
   actions: {

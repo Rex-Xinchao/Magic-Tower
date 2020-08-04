@@ -1,6 +1,7 @@
 import buildingManual from '../item/buildingManual'
 import monsterManual from '../npc/monsterManual'
 import npcManual from '../npc/characterManual'
+import toolManual from '../item/toolManual'
 
 const buildingList = [
   ['02', '02', '01', '03', '00', '00', '03', '01', '02', '02'],
@@ -41,6 +42,19 @@ const npcList = [
   ['00', '00', '00', '00', '00', '00', '00', '00', '00', '00']
 ]
 
+const toolList = [
+  ['00', '00', '00', '00', '01', '00', '00', '00', '00', '00'],
+  ['00', '00', '00', '00', '00', '00', '00', '00', '00', '00'],
+  ['00', '00', '00', '00', '00', '00', '00', '00', '00', '00'],
+  ['00', '00', '00', '00', '00', '00', '00', '00', '00', '00'],
+  ['00', '00', '00', '00', '00', '00', '00', '00', '00', '00'],
+  ['00', '00', '00', '00', '00', '00', '00', '00', '00', '00'],
+  ['00', '00', '00', '00', '00', '00', '00', '00', '00', '00'],
+  ['00', '00', '00', '00', '00', '00', '00', '00', '00', '00'],
+  ['00', '00', '00', '00', '00', 'RedKey', '00', '00', '00', '00'],
+  ['00', '00', '00', '00', '00', '00', '00', '00', '00', '00']
+]
+
 const floorOne = {
   name: '普通一层',
   index: 'FloorOne',
@@ -53,6 +67,7 @@ const floorOne = {
         const Building = buildingManual[buildingList[i][j]]
         const Monster = monsterManual[monsterList[i][j]]
         const Npc = npcManual[npcList[i][j]]
+        const Tool = toolManual[toolList[i][j]]
         const position = { x: j, y: i }
         const building = new Building()
         const monster = {
@@ -63,6 +78,10 @@ const floorOne = {
         const npc = {
           isNpcExist: false,
           npcDetail: null
+        }
+        const tool = {
+          isToolExist: false,
+          toolDetail: null
         }
         if (Monster) {
           const monsterDetail = new Monster()
@@ -75,7 +94,17 @@ const floorOne = {
           npc.isNpcExist = true
           npc.npcDetail = npcDetail
         }
-        buildingList[i][j] = { ...position, ...building, ...monster, ...npc }
+        if (Tool) {
+          tool.isToolExist = true
+          tool.toolDetail = { ...Tool }
+        }
+        buildingList[i][j] = {
+          ...position,
+          ...building,
+          ...monster,
+          ...npc,
+          ...tool
+        }
       }
     }
     return buildingList

@@ -42,6 +42,11 @@ const move = {
         // 存在npc
         this.showDialogue(currentMap.npcDetail)
         move = false
+      } else if (currentMap.isToolExist) {
+        // 存在物品
+        currentMap.toolDetail.effect(this)
+        currentMap.isToolExist = false
+        move = true
       } else {
         // 存在建筑物
         if (UU_REMOVE_LIST.indexOf(currentMap.class) >= 0) {
