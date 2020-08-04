@@ -11,6 +11,16 @@ const monsterManual = {
     this.Experience = 1
     this.Money = 1
     this.isDead = false
+    // 回合结束恢复1点生命
+    this.skillType = 'afterBattle'
+    this.skill = (hero, monster) => {
+      if (monster.Health <= 0) return `${monster.Name}特殊技能发动失败`
+      const effectType = 'Health'
+      const effectNum = 1
+      const effectLog = `${monster.Name}特殊技能生效，恢复了${effectNum}点生命`
+      monster[effectType] += effectNum
+      return effectLog
+    }
   },
   '02': function() {
     this.Name = '史莱姆(红)'
@@ -167,7 +177,17 @@ const monsterManual = {
     this.Money = 20
     this.Experience = 15
     this.isDead = false
-    // 特殊能力 减少的人100hp
+    // 特殊能力 减少敌人100hp
+    this.skillType = 'beforeBattle'
+    this.skill = (hero) => {
+      const effectType = 'Health'
+      const effectNum = -100
+      const effectLog = `${this.Name}特殊技能生效，对${
+        hero.Name
+      }造成了100点伤害`
+      hero[effectType] += effectNum
+      return effectLog
+    }
   },
   '14': function() {
     this.Name = '高级法师'
@@ -221,6 +241,16 @@ const monsterManual = {
     this.Experience = 35
     this.isDead = false
     // 减少敌人300hp
+    this.skillType = 'beforeBattle'
+    this.skill = (hero) => {
+      const effectType = 'Health'
+      const effectNum = -300
+      const effectLog = `${this.Name}特殊技能生效，对${
+        hero.Name
+      }造成了300点伤害`
+      hero[effectType] += effectNum
+      return effectLog
+    }
   },
   '18': function() {
     this.Name = '兽面武士'
@@ -248,6 +278,16 @@ const monsterManual = {
     this.Experience = 30
     this.isDead = false
     // 减少敌人1/4hp
+    this.skillType = 'beforeBattle'
+    this.skill = (hero) => {
+      const effectType = 'Health'
+      const effectNum = -1 * Math.floor(hero.Health / 4)
+      const effectLog = `${this.Name}特殊技能生效，对${
+        hero.Name
+      }造成了${effectNum}点伤害`
+      hero[effectType] += effectNum
+      return effectLog
+    }
   },
   '20': function() {
     this.Name = '金卫士'
@@ -353,6 +393,16 @@ const monsterManual = {
     this.Experience = 65
     this.isDead = false
     // 减少敌人1/3hp
+    this.skillType = 'beforeBattle'
+    this.skill = (hero) => {
+      const effectType = 'Health'
+      const effectNum = -1 * Math.floor(hero.Health / 3)
+      const effectLog = `${this.Name}特殊技能生效，对${
+        hero.Name
+      }造成了${effectNum}点伤害`
+      hero[effectType] += effectNum
+      return effectLog
+    }
   },
   '28': function() {
     this.Name = '冥队长'

@@ -14,7 +14,7 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  name: 'dialog',
+  name: 'dialogue',
   data() {
     return {
       show: false,

@@ -16,13 +16,18 @@ const Battle = {
     // 战斗
     battleStart() {
       this.reset()
+      if (this.monster.skill && this.monster.skillType === 'beforeBattle') {
+        this.log.push(this.monster.skill(this.hero, this.monster))
+        this.$refs.battleLog.showDialog(this.log)
+      }
       while (this.hero.Health > 0 && this.monster.Health > 0) {
         // 双方血量归零前持续战斗
         this.turnLogging()
         this.battle()
-        this.resultLogging()
         this.$refs.battleLog.showDialog(this.log)
       }
+      this.resultLogging()
+      this.$refs.battleLog.showDialog(this.log)
       this.battleEnd()
     },
     reset() {
@@ -51,6 +56,10 @@ const Battle = {
       } else {
         isContinue && (isContinue = this.attack(monster, hero))
         isContinue && (isContinue = this.attack(hero, monster))
+      }
+      if (this.monster.skill && this.monster.skillType === 'afterBattle') {
+        this.log.push(this.monster.skill(this.hero, this.monster))
+        this.$refs.battleLog.showDialog(this.log)
       }
     },
     attack(self, enemy) {
