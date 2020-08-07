@@ -3,14 +3,14 @@
     <div class="line" v-for="(lineList, y) in mapList" :key="y">
       <div class="ceil" v-for="(item, x) in lineList" :key="x">
         <div class="map-item" :class="getClass(item)">
-          <div class="monster" v-if="item.isExist && !item.isDead" :title="getTitle(item.monsterDetail)">
-            {{ item.monsterDetail && item.monsterDetail.Name }}
+          <div class="monster" v-if="item.monsterDetail && !item.isDead" :title="getTitle(item.monsterDetail)">
+            {{ item.monsterDetail.Name }}
           </div>
-          <div class="monster" v-if="item.isNpcExist" :title="item.npcDetail.description">
-            {{ item.npcDetail && item.npcDetail.Name }}
+          <div class="monster" v-if="item.npcDetail" :title="item.npcDetail.description">
+            {{ item.npcDetail.Name }}
           </div>
-          <div class="item" v-if="item.isToolExist" :title="item.toolDetail.Instruction">
-            {{ item.toolDetail && item.toolDetail.Name }}
+          <div class="item" v-if="item.toolDetail" :title="item.toolDetail.Instruction">
+            {{ item.toolDetail.Name }}
           </div>
           <div class="hero" v-if="rolePosition[0] === x && rolePosition[1] === y"></div>
         </div>
