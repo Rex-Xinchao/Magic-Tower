@@ -41,6 +41,8 @@
 
 .wall {
   background: url("~@/assets/images/buildings/wall.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .river {
