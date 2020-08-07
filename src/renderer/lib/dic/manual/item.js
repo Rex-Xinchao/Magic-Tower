@@ -1,6 +1,7 @@
 const item = {
   i_01: function() {
     this.Id = 'i_01'
+    this.class = 'redKey'
     this.Name = '红钥匙'
     this.Type = 'tool'
     this.Instruction = '红色的钥匙'
@@ -11,6 +12,7 @@ const item = {
   },
   i_02: function() {
     this.Id = 'i_02'
+    this.class = 'greenKey'
     this.Name = '绿钥匙'
     this.Type = 'tool'
     this.Instruction = '绿色的钥匙'
@@ -21,6 +23,7 @@ const item = {
   },
   i_03: function() {
     this.Id = 'i_03'
+    this.class = 'blueKey'
     this.Name = '蓝钥匙'
     this.Type = 'tool'
     this.Instruction = '蓝色的钥匙'
@@ -61,7 +64,7 @@ const item = {
   },
   e_01: function() {
     this.Id = 'e_01'
-    this.Name = '破烂的剑'
+    this.Name = '木刀-洞爷湖'
     this.Type = 'arms'
     this.Attack = 1
     this.Defense = 0
@@ -90,7 +93,7 @@ const item = {
   },
   e_02: function() {
     this.Id = 'e_02'
-    this.Name = '石头'
+    this.Name = '毒药'
     this.Type = 'arms'
     this.Attack = 1
     this.Defense = 0
