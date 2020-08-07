@@ -1,6 +1,7 @@
 const monster = {
   m_01: function() {
     this.Name = '史莱姆(绿)'
+    this.manualNumber = 1
     this.Health = 50
     this.Attack = 20
     this.Defense = 1

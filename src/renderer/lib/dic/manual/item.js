@@ -49,6 +49,16 @@ const item = {
       vm.$store.commit('addHealth', 100)
     }
   },
+  i_06: function() {
+    this.Id = 'i_06'
+    this.Name = '怪物图鉴-残'
+    this.Type = 'tool'
+    this.Instruction = '收录了一部分怪物信息的图鉴'
+    this.EffectDescription = '可以查看怪物属性'
+    this.effect = (vm) => {
+      vm.$store.commit('setMonsterManual', 1)
+    }
+  },
   e_01: function() {
     this.Id = 'e_01'
     this.Name = '破烂的剑'
