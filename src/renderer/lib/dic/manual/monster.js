@@ -1,5 +1,5 @@
-const monsterManual = {
-  '01': function() {
+const monster = {
+  m_01: function() {
     this.Name = '史莱姆(绿)'
     this.Health = 50
     this.Attack = 20
@@ -22,7 +22,7 @@ const monsterManual = {
       return effectLog
     }
   },
-  '02': function() {
+  m_02: function() {
     this.Name = '史莱姆(红)'
     this.Health = 70
     this.Attack = 15
@@ -35,7 +35,7 @@ const monsterManual = {
     this.Experience = 1
     this.isDead = false
   },
-  '03': function() {
+  m_03: function() {
     this.Name = '小蝙蝠'
     this.Health = 100
     this.Attack = 20
@@ -48,7 +48,7 @@ const monsterManual = {
     this.Experience = 2
     this.isDead = false
   },
-  '04': function() {
+  m_04: function() {
     this.Name = '骷髅小兵'
     this.Health = 110
     this.Attack = 25
@@ -61,7 +61,7 @@ const monsterManual = {
     this.Experience = 4
     this.isDead = false
   },
-  '05': function() {
+  m_05: function() {
     this.Name = '青头怪'
     this.Health = 200
     this.Attack = 35
@@ -74,7 +74,7 @@ const monsterManual = {
     this.Experience = 3
     this.isDead = false
   },
-  '06': function() {
+  m_06: function() {
     this.Name = '骷髅士兵'
     this.Health = 150
     this.Attack = 40
@@ -87,7 +87,7 @@ const monsterManual = {
     this.Experience = 5
     this.isDead = false
   },
-  '07': function() {
+  m_07: function() {
     this.Name = '初级法师'
     this.Health = 125
     this.Attack = 50
@@ -100,7 +100,7 @@ const monsterManual = {
     this.Experience = 7
     this.isDead = false
   },
-  '08': function() {
+  m_08: function() {
     this.Name = '大蝙蝠'
     this.Health = 150
     this.Attack = 35
@@ -113,7 +113,7 @@ const monsterManual = {
     this.Experience = 8
     this.isDead = false
   },
-  '09': function() {
+  m_09: function() {
     this.Name = '兽面人'
     this.Health = 300
     this.Attack = 75
@@ -182,9 +182,7 @@ const monsterManual = {
     this.skill = (hero) => {
       const effectType = 'Health'
       const effectNum = -100
-      const effectLog = `${this.Name}特殊技能生效，对${
-        hero.Name
-      }造成了100点伤害`
+      const effectLog = `${this.Name}特殊技能生效，对${hero.Name}造成了100点伤害`
       hero[effectType] += effectNum
       return effectLog
     }
@@ -245,9 +243,7 @@ const monsterManual = {
     this.skill = (hero) => {
       const effectType = 'Health'
       const effectNum = -300
-      const effectLog = `${this.Name}特殊技能生效，对${
-        hero.Name
-      }造成了300点伤害`
+      const effectLog = `${this.Name}特殊技能生效，对${hero.Name}造成了300点伤害`
       hero[effectType] += effectNum
       return effectLog
     }
@@ -282,9 +278,7 @@ const monsterManual = {
     this.skill = (hero) => {
       const effectType = 'Health'
       const effectNum = -1 * Math.floor(hero.Health / 4)
-      const effectLog = `${this.Name}特殊技能生效，对${
-        hero.Name
-      }造成了${effectNum}点伤害`
+      const effectLog = `${this.Name}特殊技能生效，对${hero.Name}造成了${effectNum}点伤害`
       hero[effectType] += effectNum
       return effectLog
     }
@@ -397,9 +391,7 @@ const monsterManual = {
     this.skill = (hero) => {
       const effectType = 'Health'
       const effectNum = -1 * Math.floor(hero.Health / 3)
-      const effectLog = `${this.Name}特殊技能生效，对${
-        hero.Name
-      }造成了${effectNum}点伤害`
+      const effectLog = `${this.Name}特殊技能生效，对${hero.Name}造成了${effectNum}点伤害`
       hero[effectType] += effectNum
       return effectLog
     }
@@ -432,4 +424,4 @@ const monsterManual = {
   }
 }
 
-export default monsterManual
+export default monster

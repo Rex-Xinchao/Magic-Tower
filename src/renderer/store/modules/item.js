@@ -1,4 +1,4 @@
-import Tool from '@lib/dic/item/toolManual'
+import tool from '@lib/dic/manual/item'
 
 const item = {
   state: {
@@ -30,7 +30,8 @@ const item = {
       if (isExist) {
         state.tools = tools
       } else {
-        const equipment = Tool[toolId]
+        const Tool = tool[toolId]
+        const equipment = new Tool()
         equipment.sum = 1
         state.tools = [...state.tools, equipment]
       }

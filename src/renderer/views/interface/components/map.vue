@@ -15,6 +15,7 @@
           <div class="hero" v-if="rolePosition[0] === x && rolePosition[1] === y"></div>
         </div>
       </div>
+      <div style="clear: both;"></div>
     </div>
     <Dialogue ref="dialogue"></Dialogue>
     <BattleLog ref="battleLog"></BattleLog>

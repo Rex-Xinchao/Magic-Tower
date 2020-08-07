@@ -1,4 +1,4 @@
-import Equipment from '@lib/dic/item/equipmentManual'
+import item from '@lib/dic/manual/item'
 
 const equipment = {
   state: {
@@ -20,8 +20,10 @@ const equipment = {
   },
   mutations: {
     getEquipment(state, equipmentId) {
-      const equipment = Equipment[equipmentId]
+      const Equipment = item[equipmentId]
+      const equipment = new Equipment()
       state.equipments = [...state.equipments, equipment]
+      console.log(state.equipments)
     },
     delEquipment(state, equipmentId) {
       let equipments = []
@@ -36,13 +38,13 @@ const equipment = {
       state.equipped = equipped
     },
     equip(state, equipmentId) {
-      const equipment = Equipment[equipmentId]
+      const Equipment = item[equipmentId]
+      const equipment = new Equipment()
       if (state.equipped.length <= 6 && state.equipments.length > 0) {
         let equipments = []
         let equipped = [...state.equipped, equipment]
         for (let i = 0; i < state.equipments.length; i++) {
-          state.equipments[i].Id === equipment.Id ||
-            equipments.push(state.equipments[i])
+          state.equipments[i].Id === equipment.Id || equipments.push(state.equipments[i])
         }
         state.equipped = equipped
         state.equipments = equipments
@@ -50,7 +52,8 @@ const equipment = {
       }
     },
     drop(state, equipmentId) {
-      const equipment = Equipment[equipmentId]
+      const Equipment = item[equipmentId]
+      const equipment = new Equipment()
       let equipments = [...state.equipments, equipment]
       let equipped = []
       state.equipped.forEach((e) => {
@@ -61,14 +64,7 @@ const equipment = {
       this.commit('calcAddition', '')
     },
     calcAddition(state) {
-      let [Attack, Defense, MagicAttack, MagicDefense, Dexterous, Luck] = [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ]
+      let [Attack, Defense, MagicAttack, MagicDefense, Dexterous, Luck] = [0, 0, 0, 0, 0, 0]
       state.equipped.forEach((e) => {
         e.Attack && (Attack += e.Attack)
         e.Defense && (Attack += e.Defense)

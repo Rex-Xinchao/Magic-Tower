@@ -1,5 +1,5 @@
-const npcManual = {
-  '01': function() {
+const npc = {
+  c_01: function() {
     const _this = this
     this.Name = '天使'
     this.description = '菜逼勇者?'
@@ -49,7 +49,7 @@ const npcManual = {
       }
     }
   },
-  '02': function() {
+  c_02: function() {
     const _this = this
     this.Name = '战死的冒险者'
     this.description = '好惨，只剩下一堆白骨'
@@ -95,7 +95,7 @@ const npcManual = {
       }
     }
   },
-  '03': function() {
+  c_03: function() {
     this.Name = '消耗品商人'
     this.description = '你要看一下我的大宝贝吗?'
     this.dialogue = function(vm) {
@@ -156,4 +156,4 @@ const npcManual = {
   }
 }
 
-export default npcManual
+export default npc

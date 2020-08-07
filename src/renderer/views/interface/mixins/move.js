@@ -24,7 +24,7 @@ const move = {
     // 角色移动
     move([x, y]) {
       let move = true
-      if (x < 0 || x >= 10 || y < 0 || y >= 10) return false
+      if (x < 0 || x >= 12 || y < 0 || y >= 10) return false
       const currentMap = this.mapDetails[y][x]
       if (currentMap.isExist && !currentMap.isDead) {
         // 存在活的怪物
@@ -44,7 +44,11 @@ const move = {
         move = false
       } else if (currentMap.isToolExist) {
         // 存在物品
-        currentMap.toolDetail.effect(this)
+        if (currentMap.toolDetail.Type === 'tool') {
+          currentMap.toolDetail.effect(this)
+        } else {
+          this.$store.commit('getEquipment', currentMap.toolDetail.Id)
+        }
         currentMap.isToolExist = false
         move = true
       } else {
