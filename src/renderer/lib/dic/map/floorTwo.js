@@ -17,7 +17,7 @@ const floorOne = {
   name: '怠惰之狱--二层',
   index: 'FloorTwo',
   next: 'FloorOne',
-  last: null,
+  last: 'FloorOne',
   originPosition: [6, 8],
   mapDoms: () => {
     for (let i = 0; i < 10; i++) {
@@ -26,6 +26,7 @@ const floorOne = {
         const Element = manual[eId]
         let element = {
           isDead: false,
+          IsExist: false,
           monsterDetail: null,
           npcDetail: null,
           toolDetail: null,
@@ -47,6 +48,7 @@ const floorOne = {
         }
         if (eId.includes('i_') || eId.includes('e_')) {
           const toolDetail = new Element()
+          element.IsExist = true
           element.toolDetail = { ...toolDetail }
         }
         elementList[i][j] = element

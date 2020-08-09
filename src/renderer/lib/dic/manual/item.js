@@ -6,7 +6,9 @@ const item = {
     this.Type = 'tool'
     this.Instruction = '红色的钥匙'
     this.EffectDescription = '可以打开红门'
-    this.effect = (vm) => {
+    this.IsExist = true
+    this.effect = (vm, self) => {
+      self.IsExist = false
       vm.$store.commit('setRedKey', 1)
     }
   },
@@ -17,7 +19,9 @@ const item = {
     this.Type = 'tool'
     this.Instruction = '绿色的钥匙'
     this.EffectDescription = '可以打开绿门'
-    this.effect = (vm) => {
+    this.IsExist = true
+    this.effect = (vm, self) => {
+      self.IsExist = false
       vm.$store.commit('setGreenKey', 1)
     }
   },
@@ -28,7 +32,9 @@ const item = {
     this.Type = 'tool'
     this.Instruction = '蓝色的钥匙'
     this.EffectDescription = '可以打开蓝门'
-    this.effect = (vm) => {
+    this.IsExist = true
+    this.effect = (vm, self) => {
+      self.IsExist = false
       vm.$store.commit('BlueKey', 1)
     }
   },
@@ -38,7 +44,9 @@ const item = {
     this.Type = 'tool'
     this.Instruction = '提升体质的药剂'
     this.EffectDescription = '增加少量生命上限'
-    this.effect = (vm) => {
+    this.IsExist = true
+    this.effect = (vm, self) => {
+      self.IsExist = false
       vm.$store.commit('addHealth', 50)
     }
   },
@@ -48,7 +56,9 @@ const item = {
     this.Type = 'tool'
     this.Instruction = '提升体质的药剂'
     this.EffectDescription = '增加中等生命上限'
-    this.effect = (vm) => {
+    this.IsExist = true
+    this.effect = (vm, self) => {
+      self.IsExist = false
       vm.$store.commit('addHealth', 100)
     }
   },
@@ -58,7 +68,9 @@ const item = {
     this.Type = 'tool'
     this.Instruction = '收录了一部分怪物信息的图鉴'
     this.EffectDescription = '可以查看怪物属性'
-    this.effect = (vm) => {
+    this.IsExist = true
+    this.effect = (vm, self) => {
+      self.IsExist = false
       vm.$store.commit('setMonsterManual', 1)
     }
   },

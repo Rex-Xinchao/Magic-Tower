@@ -26,7 +26,7 @@ const move = {
       let move = true
       if (x < 0 || x >= 12 || y < 0 || y >= 10) return false
       const currentMap = this.mapDetails[y][x]
-      if (currentMap.isExist && !currentMap.isDead) {
+      if (currentMap.monsterDetail && !currentMap.isDead) {
         // 存在活的怪物
         this.monster = { ...currentMap.monsterDetail } // 设置怪物对象
         const Health = this.role.Health
@@ -38,14 +38,14 @@ const move = {
           this.role.Health = Health
           move = false // 打不过，禁止移动
         }
-      } else if (currentMap.isNpcExist) {
+      } else if (currentMap.npcDetail) {
         // 存在npc
         this.showDialogue(currentMap.npcDetail)
         move = false
-      } else if (currentMap.isToolExist) {
+      } else if (currentMap.toolDetail && currentMap.IsExist) {
         // 存在物品
         if (currentMap.toolDetail.Type === 'tool') {
-          currentMap.toolDetail.effect(this)
+          currentMap.toolDetail.effect(this, currentMap)
         } else {
           this.$store.commit('getEquipment', currentMap.toolDetail.Id)
         }

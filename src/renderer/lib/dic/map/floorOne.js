@@ -26,6 +26,7 @@ const floorOne = {
         const Element = manual[eId]
         let element = {
           isDead: false,
+          IsExist: false,
           monsterDetail: null,
           npcDetail: null,
           toolDetail: null,
@@ -47,6 +48,7 @@ const floorOne = {
         }
         if (eId.includes('i_') || eId.includes('e_')) {
           const toolDetail = new Element()
+          element.IsExist = true
           element.toolDetail = { ...toolDetail }
         }
         elementList[i][j] = element

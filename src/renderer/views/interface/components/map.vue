@@ -8,19 +8,20 @@
             :class="item.monsterDetail.class"
             v-if="item.monsterDetail && !item.isDead"
             :title="getTitle(item.monsterDetail)"
-          ></div>
-          <div
-            class="monster"
-            :class="item.npcDetail.class"
-            v-if="item.npcDetail"
-            :title="item.npcDetail.description"
-          ></div>
+          >
+            {{ item.monsterDetail && item.monsterDetail.Name }}
+          </div>
+          <div class="monster" :class="item.npcDetail.class" v-if="item.npcDetail" :title="item.npcDetail.description">
+            {{ item.npcDetail && item.npcDetail.Name }}
+          </div>
           <div
             class="item"
             :class="item.toolDetail.class"
-            v-if="item.toolDetail"
+            v-if="item.toolDetail && item.IsExist"
             :title="item.toolDetail.Instruction"
-          ></div>
+          >
+            {{ item.toolDetail && item.toolDetail.Name }}
+          </div>
           <div class="hero" v-if="rolePosition[0] === x && rolePosition[1] === y"></div>
         </div>
       </div>
@@ -88,7 +89,11 @@ export default {
     getTitle(monster) {
       if (monster) {
         if (this.monsterManual.includes(monster.manualNumber)) {
-          return `怪物名称：${monster.Name}\n生命：${monster.Health}\n物攻：${monster.Attack}\n物防：${monster.Defense}\n魔攻：${monster.MagicAttack}\n魔防：${monster.MagicDefense}\n灵巧：${monster.Dexterous}\n幸运：${monster.Luck}\n`
+          return `怪物名称：${monster.Name}\n生命：${monster.Health}\n物攻：${monster.Attack}\n物防：${
+            monster.Defense
+          }\n魔攻：${monster.MagicAttack}\n魔防：${monster.MagicDefense}\n灵巧：${monster.Dexterous}\n幸运：${
+            monster.Luck
+          }\n`
         }
         return ''
       }
