@@ -35,7 +35,7 @@ const item = {
     this.IsExist = true
     this.effect = (vm, self) => {
       self.IsExist = false
-      vm.$store.commit('BlueKey', 1)
+      vm.$store.commit('setBlueKey', 1)
     }
   },
   i_04: function() {

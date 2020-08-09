@@ -4,9 +4,9 @@ const item = {
   state: {
     items: {
       Money: 0, // 金钱： 可以购买属性和道具
-      RedKey: 10, // 红钥匙数量，用于开启红色门
-      GreenKey: 10, // 绿钥匙数量，用于开启绿色门
-      BlueKey: 10 // 蓝钥匙数量，用于开启蓝色门
+      RedKey: 0, // 红钥匙数量，用于开启红色门
+      GreenKey: 0, // 绿钥匙数量，用于开启绿色门
+      BlueKey: 0 // 蓝钥匙数量，用于开启蓝色门
     },
     tools: []
   },

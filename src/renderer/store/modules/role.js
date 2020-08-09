@@ -49,7 +49,9 @@ const role = {
         // 升级
         store.state.attribute.Experience = store.state.attribute.Experience - store.state.attribute.NextLevelExperience
         store.state.level++
-        store.state.NextLevelExperience = store.state.NextLevelExperience * 2
+        store.state.Health = store.state.Health + 1000
+        store.state.Attack = store.state.Attack + 8
+        store.state.Defense = store.state.Defense + 8
       }
     },
     setHealth(store, Health) {
