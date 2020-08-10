@@ -2,6 +2,8 @@
 const DOOR_LIST = ['redDoor', 'greenDoor', 'blueDoor']
 const STAIRWAY_LIST = ['stairway_up', 'stairway_down']
 const UU_REMOVE_LIST = ['wall', 'statue']
+const FANCE_LIST = ['fence']
+const SWITCH_LIST = ['switch']
 const move = {
   data() {
     return {
@@ -61,7 +63,14 @@ const move = {
           move = currentMap.func(this.items, currentMap)
         } else if (STAIRWAY_LIST.indexOf(currentMap.class) >= 0) {
           // 撞楼梯
-          move = currentMap.func(this.items, currentMap, this)
+          move = currentMap.func(currentMap, this)
+        } else if (SWITCH_LIST.indexOf(currentMap.class) >= 0) {
+          // 撞开关
+          currentMap.func(this.mapList, currentMap)
+          move = true
+        } else if (FANCE_LIST.indexOf(currentMap.class) >= 0) {
+          // 撞栏杆
+          move = currentMap.func(currentMap)
         } else {
           move = true
         }

@@ -79,8 +79,8 @@ export default {
     },
     getBuildingClass(item) {
       if (item.class) {
-        if (item.class.indexOf('Door') >= 0) {
-          return item.class + ' ' + (item.opened ? 'closeDoor' : 'openDoor')
+        if (item.opened) {
+          return ''
         } else {
           return item.class
         }

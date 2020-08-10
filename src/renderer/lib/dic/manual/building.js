@@ -23,6 +23,35 @@ const building = {
     this.image = ''
     this.class = 'statue'
   },
+  b_04: function() {
+    this.id = 4
+    this.name = '栅栏'
+    this.image = ''
+    this.opened = false
+    this.class = 'fence'
+    this.func = (self) => {
+      console.log(self.opened)
+      return self.opened
+    }
+  },
+  b_05: function(fencePosition) {
+    this.id = 4
+    this.name = '开关'
+    this.image = ''
+    this.opened = false
+    this.fencePosition = fencePosition
+    this.class = 'switch'
+    this.func = (mapDom, self) => {
+      if (self.opened) {
+        return true
+      } else {
+        self.opened = true
+        const fance = mapDom[fencePosition[1]][fencePosition[0]]
+        fance.opened = true
+        return true
+      }
+    }
+  },
   b_11: function() {
     this.id = 11
     this.name = '红门'
@@ -77,27 +106,30 @@ const building = {
       }
     }
   },
-  b_14: function() {
+  b_14: function(nextPosition) {
     this.id = 14
     this.name = '楼梯(下)'
     this.image = ''
     this.class = 'stairway_down'
-    this.func = (item, self, vm) => {
+    this.nextPosition = nextPosition
+    this.func = (self, vm) => {
+      console.log(self.nextPosition)
       vm.$store.commit('nextFlour', {
         mapList: vm.mapList,
-        rolePosition: vm.rolePosition
+        rolePosition: self.nextPosition
       })
     }
   },
-  b_15: function() {
+  b_15: function(nextPosition) {
     this.id = 15
     this.name = '楼梯(上)'
     this.image = ''
     this.class = 'stairway_up'
-    this.func = (item, self, vm) => {
+    this.nextPosition = nextPosition
+    this.func = (self, vm) => {
       vm.$store.commit('lastFlour', {
         mapList: vm.mapList,
-        rolePosition: vm.rolePosition
+        rolePosition: self.nextPosition
       })
     }
   }

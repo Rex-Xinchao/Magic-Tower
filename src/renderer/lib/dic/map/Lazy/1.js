@@ -13,13 +13,20 @@ const elementList = [
   ['i_03', 'i_50', 'i_03', 'i_03', 'b_01', 'b_00', 'b_00', 'b_15', 'b_01', 'i_03', 'i_04', 'i_03']
 ]
 
+const stairway = {
+  '0_0': [1, 0],
+  '7_9': [7, 8]
+}
+
+const switchFance = {
+}
+
 const LazyOne = {
   name: '怠惰之狱--一层',
   index: 'LazyOne',
   next: 'LazyTwo',
   last: 'StartFloor',
-  originPosition: [6, 8],
-  mapDoms: getMapDom(elementList)
+  mapDoms: getMapDom(elementList, stairway, switchFance)
 }
 
 export default LazyOne

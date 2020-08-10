@@ -39,6 +39,18 @@
   background-repeat: no-repeat;
 }
 
+.fence{
+  &::after {
+    content: '栏杆'
+  }
+}
+
+.switch{
+  &::after {
+    content: '开关'
+  }
+}
+
 .wall {
   background: url("~@/assets/images/buildings/wall.png");
   background-size: contain;
