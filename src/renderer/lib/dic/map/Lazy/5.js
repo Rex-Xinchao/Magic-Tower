@@ -13,12 +13,18 @@ const elementList = [
   ['b_00', 'b_00', 'b_01', 'b_00', 'b_00', 'b_15', 'b_00', 'b_00', 'b_00', 'b_01', 'b_00', 'b_00']
 ]
 
+const stairway = {
+  '0_0': [0, 1], // 上一层
+  '5_9': [6, 9], // 上一层
+  '6_0': [6, 1] // 下一层
+}
+
 const LazyTwo = {
   name: '怠惰之狱--最终层',
   index: 'LazyLast',
   next: 'StartFlour',
   last: 'LazyFour',
-  mapDoms: getMapDom(elementList)
+  mapDoms: getMapDom(elementList, stairway)
 }
 
 export default LazyTwo

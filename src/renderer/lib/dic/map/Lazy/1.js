@@ -14,12 +14,11 @@ const elementList = [
 ]
 
 const stairway = {
-  '0_0': [1, 0],
-  '7_9': [7, 8]
+  '7_9': [7, 8], // 上一层
+  '0_0': [0, 1] // 下一层
 }
 
-const switchFance = {
-}
+const switchFance = {}
 
 const LazyOne = {
   name: '怠惰之狱--一层',

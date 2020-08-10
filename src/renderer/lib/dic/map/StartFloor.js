@@ -13,7 +13,7 @@ const elementList = [
 ]
 
 const stairway = {
-  '7_9': [7, 8]
+  '7_9': [7, 8] // 下一层
 }
 
 const switchFance = {}
