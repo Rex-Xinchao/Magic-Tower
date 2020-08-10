@@ -2,8 +2,8 @@ import Tower from '@lib/dic/map/tower'
 
 const layer = {
   state: {
-    layerName: '普通一层',
-    layerIndex: 'FloorOne',
+    layerName: '起始之地',
+    layerIndex: 'StartFloor',
     map: {},
     layerMap: {}
   },

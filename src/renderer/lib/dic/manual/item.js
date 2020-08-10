@@ -238,6 +238,31 @@ const item = {
         }
       }
     }
+  },
+  e_03: function() {
+    this.Id = 'e_03'
+    this.Name = '木盾'
+    this.Type = 'arms'
+    this.Attack = 0
+    this.Defense = 10
+    this.MagicAttack = 0
+    this.MagicDefense = 5
+    this.Dexterous = 0
+    this.Priority = 0
+    this.EquipEffect = null
+    this.Instruction = null
+    this.EffectDescription = null
+    this.effect = (physicsHarm, magicHarm, luck = 0) => {
+      return null
+    }
+  },
+  e_91: function() {
+    this.Id = 'e_91'
+    this.Name = '首领钥匙'
+    this.Type = 'key'
+    this.effect = (vm) => {
+      // 打开首领boss门
+    }
   }
 }
 

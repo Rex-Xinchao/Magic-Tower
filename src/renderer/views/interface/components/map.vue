@@ -72,7 +72,7 @@ export default {
         this.mapList = mapList
         this.setMapList(mapList)
       } else {
-        mapList = Layer.mapDoms()
+        mapList = Layer.mapDoms
         this.mapList = mapList
         this.setMapList(mapList)
       }
@@ -89,11 +89,7 @@ export default {
     getTitle(monster) {
       if (monster) {
         if (this.monsterManual.includes(monster.manualNumber)) {
-          return `怪物名称：${monster.Name}\n生命：${monster.Health}\n物攻：${monster.Attack}\n物防：${
-            monster.Defense
-          }\n魔攻：${monster.MagicAttack}\n魔防：${monster.MagicDefense}\n灵巧：${monster.Dexterous}\n幸运：${
-            monster.Luck
-          }\n`
+          return `怪物名称：${monster.Name}\n生命：${monster.Health}\n物攻：${monster.Attack}\n物防：${monster.Defense}\n魔攻：${monster.MagicAttack}\n魔防：${monster.MagicDefense}\n灵巧：${monster.Dexterous}\n幸运：${monster.Luck}\n`
         }
         return ''
       }
