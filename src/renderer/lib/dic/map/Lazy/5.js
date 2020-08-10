@@ -19,12 +19,16 @@ const stairway = {
   '6_0': [6, 1] // 下一层
 }
 
+const switchFance = {
+  '11_0': [6, 7]
+}
+
 const LazyTwo = {
   name: '怠惰之狱--最终层',
   index: 'LazyLast',
   next: 'StartFlour',
   last: 'LazyFour',
-  mapDoms: getMapDom(elementList, stairway)
+  mapDoms: getMapDom(elementList, stairway, switchFance)
 }
 
 export default LazyTwo
