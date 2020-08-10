@@ -40,6 +40,66 @@ const item = {
   },
   i_04: function() {
     this.Id = 'i_04'
+    this.Name = '生命药水（微）'
+    this.Type = 'tool'
+    this.Instruction = '提升体质的药剂'
+    this.EffectDescription = '增加微量生命上限'
+    this.IsExist = true
+    this.effect = (vm, self) => {
+      self.IsExist = false
+      vm.$store.commit('addHealth', 100)
+    }
+  },
+  i_05: function() {
+    this.Id = 'i_05'
+    this.Name = '攻击宝石（微）'
+    this.Type = 'tool'
+    this.Instruction = '增加攻击的宝石'
+    this.EffectDescription = '增加微量攻击力'
+    this.IsExist = true
+    this.effect = (vm, self) => {
+      self.IsExist = false
+      vm.$store.commit('addAttack', 3)
+    }
+  },
+  i_06: function() {
+    this.Id = 'i_06'
+    this.Name = '防御宝石（微）'
+    this.Type = 'tool'
+    this.Instruction = '增加防御的宝石'
+    this.EffectDescription = '增加微量防御力'
+    this.IsExist = true
+    this.effect = (vm, self) => {
+      self.IsExist = false
+      vm.$store.commit('addDefense', 3)
+    }
+  },
+  i_07: function() {
+    this.Id = 'i_07'
+    this.Name = '魔攻宝石（微）'
+    this.Type = 'tool'
+    this.Instruction = '增加魔攻的宝石'
+    this.EffectDescription = '增加微量魔攻力'
+    this.IsExist = true
+    this.effect = (vm, self) => {
+      self.IsExist = false
+      vm.$store.commit('addMagicAttack', 3)
+    }
+  },
+  i_08: function() {
+    this.Id = 'i_08'
+    this.Name = '魔防宝石（微）'
+    this.Type = 'tool'
+    this.Instruction = '增加魔防的宝石'
+    this.EffectDescription = '增加微量魔防力'
+    this.IsExist = true
+    this.effect = (vm, self) => {
+      self.IsExist = false
+      vm.$store.commit('MagicDefense', 3)
+    }
+  },
+  i_09: function() {
+    this.Id = 'i_09'
     this.Name = '生命药水（小）'
     this.Type = 'tool'
     this.Instruction = '提升体质的药剂'
@@ -47,11 +107,59 @@ const item = {
     this.IsExist = true
     this.effect = (vm, self) => {
       self.IsExist = false
-      vm.$store.commit('addHealth', 50)
+      vm.$store.commit('addHealth', 200)
     }
   },
-  i_05: function() {
-    this.Id = 'i_05'
+  i_10: function() {
+    this.Id = 'i_10'
+    this.Name = '攻击宝石（小）'
+    this.Type = 'tool'
+    this.Instruction = '增加攻击的宝石'
+    this.EffectDescription = '增加小量攻击力'
+    this.IsExist = true
+    this.effect = (vm, self) => {
+      self.IsExist = false
+      vm.$store.commit('addAttack', 6)
+    }
+  },
+  i_11: function() {
+    this.Id = 'i_11'
+    this.Name = '防御宝石（小）'
+    this.Type = 'tool'
+    this.Instruction = '增加防御的宝石'
+    this.EffectDescription = '增加小量防御力'
+    this.IsExist = true
+    this.effect = (vm, self) => {
+      self.IsExist = false
+      vm.$store.commit('addDefense', 6)
+    }
+  },
+  i_12: function() {
+    this.Id = 'i_12'
+    this.Name = '魔攻宝石（小）'
+    this.Type = 'tool'
+    this.Instruction = '增加魔攻的宝石'
+    this.EffectDescription = '增加小量魔攻力'
+    this.IsExist = true
+    this.effect = (vm, self) => {
+      self.IsExist = false
+      vm.$store.commit('addMagicAttack', 6)
+    }
+  },
+  i_13: function() {
+    this.Id = 'i_13'
+    this.Name = '魔防宝石（小）'
+    this.Type = 'tool'
+    this.Instruction = '增加魔防的宝石'
+    this.EffectDescription = '增加小量魔防力'
+    this.IsExist = true
+    this.effect = (vm, self) => {
+      self.IsExist = false
+      vm.$store.commit('MagicDefense', 6)
+    }
+  },
+  i_14: function() {
+    this.Id = 'i_14'
     this.Name = '生命药水（中）'
     this.Type = 'tool'
     this.Instruction = '提升体质的药剂'
@@ -59,10 +167,10 @@ const item = {
     this.IsExist = true
     this.effect = (vm, self) => {
       self.IsExist = false
-      vm.$store.commit('addHealth', 100)
+      vm.$store.commit('addHealth', 500)
     }
   },
-  i_06: function() {
+  i_50: function() {
     this.Id = 'i_06'
     this.Name = '怪物图鉴-残'
     this.Type = 'tool'
@@ -78,7 +186,7 @@ const item = {
     this.Id = 'e_01'
     this.Name = '木刀-洞爷湖'
     this.Type = 'arms'
-    this.Attack = 1
+    this.Attack = 3
     this.Defense = 0
     this.MagicAttack = 0
     this.MagicDefense = 0
@@ -107,7 +215,7 @@ const item = {
     this.Id = 'e_02'
     this.Name = '毒药'
     this.Type = 'arms'
-    this.Attack = 1
+    this.Attack = 3
     this.Defense = 0
     this.MagicAttack = 0
     this.MagicDefense = 0
@@ -134,3 +242,40 @@ const item = {
 }
 
 export default item
+
+// i_07: function() {
+//   this.Id = 'i_07'
+//   this.Name = '生命药水（大）'
+//   this.Type = 'tool'
+//   this.Instruction = '提升体质的药剂'
+//   this.EffectDescription = '增加大等生命上限'
+//   this.IsExist = true
+//   this.effect = (vm, self) => {
+//     self.IsExist = false
+//     vm.$store.commit('addHealth', 800)
+//   }
+// },
+// i_08: function() {
+//   this.Id = 'i_08'
+//   this.Name = '生命药水（巨）'
+//   this.Type = 'tool'
+//   this.Instruction = '提升体质的药剂'
+//   this.EffectDescription = '增加巨等生命上限'
+//   this.IsExist = true
+//   this.effect = (vm, self) => {
+//     self.IsExist = false
+//     vm.$store.commit('addHealth', 1200)
+//   }
+// },
+// i_09: function() {
+//   this.Id = 'i_09'
+//   this.Name = '生命药水（顶）'
+//   this.Type = 'tool'
+//   this.Instruction = '提升体质的药剂'
+//   this.EffectDescription = '增加顶级生命上限'
+//   this.IsExist = true
+//   this.effect = (vm, self) => {
+//     self.IsExist = false
+//     vm.$store.commit('addHealth', 2000)
+//   }
+// },

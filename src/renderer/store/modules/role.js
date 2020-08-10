@@ -40,6 +40,18 @@ const role = {
     },
     delHealth(state, Health) {
       state.attribute.Health -= Health
+    },
+    addAttack(state, Attack) {
+      state.attribute.Attack += Attack
+    },
+    addDefense(state, Defense) {
+      state.attribute.Defense += Defense
+    },
+    addMagicAttack(state, MagicAttack) {
+      state.attribute.MagicAttack += MagicAttack
+    },
+    addMagicDefense(state, MagicDefense) {
+      state.attribute.MagicDefense += MagicDefense
     }
   },
   actions: {

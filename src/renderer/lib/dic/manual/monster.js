@@ -1,17 +1,51 @@
 const monster = {
   m_01: function() {
-    this.Name = '史莱姆(绿)'
+    this.Name = '史莱姆(蓝)'
     this.manualNumber = 1
     this.Health = 50
     this.Attack = 20
     this.Defense = 1
     this.MagicAttack = 0
-    this.MagicDefense = 0
+    this.MagicDefense = 1
     this.Dexterous = 0
     this.Luck = 0
     this.Experience = 1
     this.Money = 1
     this.isDead = false
+  },
+  m_02: function() {
+    this.Name = '史莱姆(绿)'
+    this.Health = 70
+    this.Attack = 15
+    this.Defense = 2
+    this.MagicAttack = 0
+    this.MagicDefense = 2
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 2
+    this.Experience = 1
+    this.isDead = false
+  },
+  m_03: function() {
+    this.Name = '史莱姆(红)'
+    this.Health = 200
+    this.Attack = 35
+    this.Defense = 10
+    this.MagicAttack = 0
+    this.MagicDefense = 10
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 5
+    this.Experience = 3
+    this.isDead = false
+  },
+  m_04: function() {
+    this.Name = '史莱姆(黑)'
+    //
+  },
+  m_05: function() {
+    this.Name = '史莱姆(精英)'
+    // 特殊效果 恢复
     // 回合结束恢复1点生命
     this.skillType = 'afterBattle'
     this.skill = (hero, monster) => {
@@ -23,33 +57,53 @@ const monster = {
       return effectLog
     }
   },
-  m_02: function() {
-    this.Name = '史莱姆(红)'
-    this.Health = 70
-    this.Attack = 15
-    this.Defense = 2
-    this.MagicAttack = 0
-    this.MagicDefense = 0
-    this.Dexterous = 0
-    this.Luck = 0
-    this.Money = 2
-    this.Experience = 1
-    this.isDead = false
-  },
-  m_03: function() {
+  m_06: function() {
     this.Name = '小蝙蝠'
     this.Health = 100
     this.Attack = 20
     this.Defense = 5
     this.MagicAttack = 0
-    this.MagicDefense = 0
+    this.MagicDefense = 5
     this.Dexterous = 0
     this.Luck = 0
     this.Money = 3
     this.Experience = 2
     this.isDead = false
   },
-  m_04: function() {
+  m_07: function() {
+    this.Name = '大蝙蝠'
+    this.Health = 150
+    this.Attack = 35
+    this.Defense = 30
+    this.MagicAttack = 0
+    this.MagicDefense = 15
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 10
+    this.Experience = 8
+    this.isDead = false
+  },
+  m_08: function() {
+    this.Name = '红蝙蝠'
+    this.Health = 550
+    this.Attack = 170
+    this.Defense = 100
+    this.MagicAttack = 0
+    this.MagicDefense = 50
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 25
+    this.Experience = 20
+    this.isDead = false
+  },
+  m_09: function() {
+    this.Name = '黑蝙蝠'
+  },
+  m_10: function() {
+    this.Name = '蝙蝠(精英)'
+    // 特殊效果 吸血
+  },
+  m_11: function() {
     this.Name = '骷髅小兵'
     this.Health = 110
     this.Attack = 25
@@ -62,20 +116,7 @@ const monster = {
     this.Experience = 4
     this.isDead = false
   },
-  m_05: function() {
-    this.Name = '青头怪'
-    this.Health = 200
-    this.Attack = 35
-    this.Defense = 10
-    this.MagicAttack = 0
-    this.MagicDefense = 0
-    this.Dexterous = 0
-    this.Luck = 0
-    this.Money = 5
-    this.Experience = 3
-    this.isDead = false
-  },
-  m_06: function() {
+  m_12: function() {
     this.Name = '骷髅士兵'
     this.Health = 150
     this.Attack = 40
@@ -88,47 +129,8 @@ const monster = {
     this.Experience = 5
     this.isDead = false
   },
-  m_07: function() {
-    this.Name = '初级法师'
-    this.Health = 125
-    this.Attack = 50
-    this.Defense = 25
-    this.MagicAttack = 0
-    this.MagicDefense = 0
-    this.Dexterous = 0
-    this.Luck = 0
-    this.Money = 10
-    this.Experience = 7
-    this.isDead = false
-  },
-  m_08: function() {
-    this.Name = '大蝙蝠'
-    this.Health = 150
-    this.Attack = 35
-    this.Defense = 30
-    this.MagicAttack = 0
-    this.MagicDefense = 0
-    this.Dexterous = 0
-    this.Luck = 0
-    this.Money = 10
-    this.Experience = 8
-    this.isDead = false
-  },
-  m_09: function() {
-    this.Name = '兽面人'
-    this.Health = 300
-    this.Attack = 75
-    this.Defense = 45
-    this.MagicAttack = 0
-    this.MagicDefense = 0
-    this.Dexterous = 0
-    this.Luck = 0
-    this.Money = 13
-    this.Experience = 10
-    this.isDead = false
-  },
-  '10': function() {
-    this.Name = '骷髅队长'
+  m_13: function() {
+    this.Name = '持盾骷髅'
     this.Health = 400
     this.Attack = 90
     this.Defense = 50
@@ -140,7 +142,95 @@ const monster = {
     this.Experience = 12
     this.isDead = false
   },
-  '11': function() {
+  m_14: function() {
+    this.Name = '骷髅队长'
+  },
+  m_15: function() {
+    this.Name = '骷髅(精英)'
+    // 特殊效果 重生
+  },
+  m_16: function() {
+    this.Name = '初级法师'
+    this.Health = 125
+    this.Attack = 0
+    this.Defense = 15
+    this.MagicAttack = 50
+    this.MagicDefense = 25
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 10
+    this.Experience = 7
+    this.isDead = false
+  },
+  m_17: function() {
+    this.Name = '高级法师'
+    this.Health = 100
+    this.Attack = 0
+    this.Defense = 35
+    this.MagicAttack = 200
+    this.MagicDefense = 110
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 30
+    this.Experience = 25
+    this.isDead = false
+  },
+  m_21: function() {
+    this.Name = '兽面人(蓝)'
+    this.Health = 300
+    this.Attack = 75
+    this.Defense = 45
+    this.MagicAttack = 0
+    this.MagicDefense = 35
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 13
+    this.Experience = 10
+    this.isDead = false
+  },
+  m_22: function() {
+    this.Name = '兽面人(绿)'
+    this.Health = 500
+    this.Attack = 115
+    this.Defense = 65
+    this.MagicAttack = 0
+    this.MagicDefense = 55
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 15
+    this.Experience = 15
+    this.isDead = false
+  },
+  m_23: function() {
+    this.Name = '兽面人(红)'
+    this.Health = 700
+    this.Attack = 250
+    this.Defense = 125
+    this.MagicAttack = 0
+    this.MagicDefense = 100
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 32
+    this.Experience = 25
+    this.isDead = false
+  },
+  m_24: function() {
+    this.Name = '兽面武士'
+    this.Health = 900
+    this.Attack = 450
+    this.Defense = 300
+    this.MagicAttack = 0
+    this.MagicDefense = 200
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 50
+    this.Experience = 40
+    this.isDead = false
+  },
+  m_25: function() {
+    this.Name = '兽面武士(精英)'
+  },
+  m_26: function() {
     this.Name = '初级卫兵'
     this.Health = 450
     this.Attack = 150
@@ -153,20 +243,128 @@ const monster = {
     this.Experience = 19
     this.isDead = false
   },
-  '12': function() {
-    this.Name = '红蝙蝠'
-    this.Health = 550
-    this.Attack = 170
-    this.Defense = 100
+  m_27: function() {
+    this.Name = '中级卫兵'
+    this.Health = 850
+    this.Attack = 350
+    this.Defense = 200
     this.MagicAttack = 0
     this.MagicDefense = 0
     this.Dexterous = 0
     this.Luck = 0
-    this.Money = 25
-    this.Experience = 20
+    this.Money = 45
+    this.Experience = 35
     this.isDead = false
   },
-  '13': function() {
+  m_28: function() {
+    this.Name = '高级卫兵'
+    this.Health = 1500
+    this.Attack = 560
+    this.Defense = 460
+    this.MagicAttack = 0
+    this.MagicDefense = 0
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 60
+    this.Experience = 50
+    this.isDead = false
+  },
+  m_29: function() {
+    this.Name = '卫兵长'
+    this.Health = 2000
+    this.Attack = 680
+    this.Defense = 590
+    this.MagicAttack = 0
+    this.MagicDefense = 0
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 70
+    this.Experience = 55
+    this.isDead = false
+  },
+  m_30: function() {
+    this.Name = '卫兵首领(精英)'
+    // 特殊技能 百分比免伤
+  },
+  m_31: function() {
+    this.Name = '蓝武士'
+    this.Health = 1200
+    this.Attack = 980
+    this.Defense = 900
+    this.MagicAttack = 0
+    this.MagicDefense = 0
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 88
+    this.Experience = 75
+    this.isDead = false
+  },
+  m_32: function() {
+    this.Name = '绿武士'
+    this.Health = 2500
+    this.Attack = 900
+    this.Defense = 850
+    this.MagicAttack = 0
+    this.MagicDefense = 0
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 84
+    this.Experience = 70
+    this.isDead = false
+  },
+  m_41: function() {
+    this.Name = '冥卫兵'
+    this.Health = 1250
+    this.Attack = 500
+    this.Defense = 400
+    this.MagicAttack = 0
+    this.MagicDefense = 0
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 55
+    this.Experience = 45
+    this.isDead = false
+  },
+  m_42: function() {
+    this.Name = '双手剑士'
+    this.Health = 1200
+    this.Attack = 620
+    this.Defense = 520
+    this.MagicAttack = 0
+    this.MagicDefense = 0
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 65
+    this.Experience = 50
+    this.isDead = false
+  },
+  m_43: function() {
+    this.Name = '金队长'
+    this.Health = 900
+    this.Attack = 750
+    this.Defense = 650
+    this.MagicAttack = 0
+    this.MagicDefense = 0
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 77
+    this.Experience = 60
+    this.isDead = false
+  },
+  m_44: function() {
+    this.Name = '红衣魔王'
+    this.Health = 15000
+    this.Attack = 1000
+    this.Defense = 1000
+    this.MagicAttack = 0
+    this.MagicDefense = 0
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 100
+    this.Experience = 100
+    this.isDead = false
+  },
+  m_51: function() {
     this.Name = '麻衣法师'
     this.Health = 220
     this.Attack = 120
@@ -188,46 +386,7 @@ const monster = {
       return effectLog
     }
   },
-  '14': function() {
-    this.Name = '高级法师'
-    this.Health = 100
-    this.Attack = 200
-    this.Defense = 110
-    this.MagicAttack = 0
-    this.MagicDefense = 0
-    this.Dexterous = 0
-    this.Luck = 0
-    this.Money = 30
-    this.Experience = 25
-    this.isDead = false
-  },
-  '15': function() {
-    this.Name = '石头怪人'
-    this.Health = 500
-    this.Attack = 115
-    this.Defense = 65
-    this.MagicAttack = 0
-    this.MagicDefense = 0
-    this.Dexterous = 0
-    this.Luck = 0
-    this.Money = 15
-    this.Experience = 15
-    this.isDead = false
-  },
-  '16': function() {
-    this.Name = '怪王'
-    this.Health = 700
-    this.Attack = 250
-    this.Defense = 125
-    this.MagicAttack = 0
-    this.MagicDefense = 0
-    this.Dexterous = 0
-    this.Luck = 0
-    this.Money = 32
-    this.Experience = 25
-    this.isDead = false
-  },
-  '17': function() {
+  m_52: function() {
     this.Name = '红衣法师'
     this.Health = 500
     this.Attack = 400
@@ -249,21 +408,8 @@ const monster = {
       return effectLog
     }
   },
-  '18': function() {
-    this.Name = '兽面武士'
-    this.Health = 900
-    this.Attack = 450
-    this.Defense = 300
-    this.MagicAttack = 0
-    this.MagicDefense = 0
-    this.Dexterous = 0
-    this.Luck = 0
-    this.Money = 50
-    this.Experience = 40
-    this.isDead = false
-  },
-  '19': function() {
-    this.Name = '白衣武士'
+  m_53: function() {
+    this.Name = '黑衣法师'
     this.Health = 1300
     this.Attack = 300
     this.Defense = 150
@@ -284,98 +430,7 @@ const monster = {
       return effectLog
     }
   },
-  '20': function() {
-    this.Name = '金卫士'
-    this.Health = 850
-    this.Attack = 350
-    this.Defense = 200
-    this.MagicAttack = 0
-    this.MagicDefense = 0
-    this.Dexterous = 0
-    this.Luck = 0
-    this.Money = 45
-    this.Experience = 35
-    this.isDead = false
-  },
-  '21': function() {
-    this.Name = '冥卫兵'
-    this.Health = 1250
-    this.Attack = 500
-    this.Defense = 400
-    this.MagicAttack = 0
-    this.MagicDefense = 0
-    this.Dexterous = 0
-    this.Luck = 0
-    this.Money = 55
-    this.Experience = 45
-    this.isDead = false
-  },
-  '22': function() {
-    this.Name = '双手剑士'
-    this.Health = 1200
-    this.Attack = 620
-    this.Defense = 520
-    this.MagicAttack = 0
-    this.MagicDefense = 0
-    this.Dexterous = 0
-    this.Luck = 0
-    this.Money = 65
-    this.Experience = 50
-    this.isDead = false
-  },
-  '23': function() {
-    this.Name = '冥战士'
-    this.Health = 2000
-    this.Attack = 680
-    this.Defense = 590
-    this.MagicAttack = 0
-    this.MagicDefense = 0
-    this.Dexterous = 0
-    this.Luck = 0
-    this.Money = 70
-    this.Experience = 55
-    this.isDead = false
-  },
-  '24': function() {
-    this.Name = '金队长'
-    this.Health = 900
-    this.Attack = 750
-    this.Defense = 650
-    this.MagicAttack = 0
-    this.MagicDefense = 0
-    this.Dexterous = 0
-    this.Luck = 0
-    this.Money = 77
-    this.Experience = 60
-    this.isDead = false
-  },
-  '25': function() {
-    this.Name = '高级卫兵'
-    this.Health = 1500
-    this.Attack = 560
-    this.Defense = 460
-    this.MagicAttack = 0
-    this.MagicDefense = 0
-    this.Dexterous = 0
-    this.Luck = 0
-    this.Money = 60
-    this.Experience = 50
-    this.isDead = false
-  },
-  '26': function() {
-    this.Name = '灵武士'
-    this.Health = 1200
-    this.Attack = 980
-    this.Defense = 900
-    this.MagicAttack = 0
-    this.MagicDefense = 0
-    this.Dexterous = 0
-    this.Luck = 0
-    this.Money = 88
-    this.Experience = 75
-    this.isDead = false
-  },
-  '27': function() {
+  m_54: function() {
     this.Name = '灵法师'
     this.Health = 1500
     this.Attack = 830
@@ -396,32 +451,6 @@ const monster = {
       hero[effectType] += effectNum
       return effectLog
     }
-  },
-  '28': function() {
-    this.Name = '冥队长'
-    this.Health = 2500
-    this.Attack = 900
-    this.Defense = 850
-    this.MagicAttack = 0
-    this.MagicDefense = 0
-    this.Dexterous = 0
-    this.Luck = 0
-    this.Money = 84
-    this.Experience = 70
-    this.isDead = false
-  },
-  '29': function() {
-    this.Name = '红衣魔王'
-    this.Health = 15000
-    this.Attack = 1000
-    this.Defense = 1000
-    this.MagicAttack = 0
-    this.MagicDefense = 0
-    this.Dexterous = 0
-    this.Luck = 0
-    this.Money = 100
-    this.Experience = 100
-    this.isDead = false
   }
 }
 
