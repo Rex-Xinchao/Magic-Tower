@@ -1,13 +1,15 @@
 <template>
-  <div class="dialogue" v-if="show">
-    <i class="close-icon" @click="close">x</i>
-    <div class="name">{{ npcName }}</div>
-    <div class="content">{{ detail.content }}</div>
-    <div class="select-list" v-for="(item, index) in detail.selectList">
-      <div class="select" @click="select(item.effect)">{{ item.select }}</div>
-    </div>
-    <div class="next-step" v-if="detail.next" @click="next">下一步</div>
-  </div>
+  <el-dialog :title="npcName" :visible.sync="show" width="60%" :before-close="close" :modal-append-to-body="false">
+    <span>
+      <div class="content">{{ detail.content }}</div>
+      <div class="select-list" v-for="(item, index) in detail.selectList">
+        <div class="select" @click="select(item.effect)">{{ item.select }}</div>
+      </div>
+    </span>
+    <span slot="footer" class="dialog-footer">
+      <div class="next-step" v-if="detail.next" @click="next">下一步</div>
+    </span>
+  </el-dialog>
 </template>
 
 <script>
@@ -49,7 +51,44 @@ export default {
   }
 }
 </script>
-
 <style lang="scss" scoped>
-@import '@style/coms/dialogue';
+.name {
+  width: 100%;
+  height: auto;
+  line-height: 24px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.content {
+  width: 100%;
+  height: auto;
+  font-size: 14px;
+  line-height: 18px;
+  white-space: normal;
+  margin-top: 12px;
+}
+
+.select-list {
+  width: 100%;
+  text-align: center;
+  margin: 0 0 10px 0;
+  .select {
+    width: 60%;
+    margin: 0 auto;
+    padding: 4px 20px;
+    border: 1px solid white;
+    cursor: pointer;
+  }
+}
+
+.next-step {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 60px;
+  height: 24px;
+  line-height: 24px;
+  cursor: pointer;
+}
 </style>
