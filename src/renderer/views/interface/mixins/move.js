@@ -38,6 +38,7 @@ const move = {
           currentMap.isDead = true
         } else {
           this.role.Health = Health
+          this.$message.error('怪物太过强大，大侠请谨慎出击')
           move = false // 打不过，禁止移动
         }
       } else if (currentMap.npcDetail) {
@@ -101,15 +102,15 @@ const move = {
       }
       if (e.keyCode === 83) {
         // save
-        // 保存存档
         this.$store.commit('saveData', this.rolePosition)
+        this.$message.success('读存成功')
         return
       }
       if (e.keyCode === 76) {
         // load
-        // 读取存档
         this.$store.commit('loadData')
         this.initMap()
+        this.$message.success('读档成功')
         return
       }
       if (e.keyCode === 32) {
