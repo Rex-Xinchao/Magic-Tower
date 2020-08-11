@@ -5,12 +5,21 @@ const layer = {
     map: {},
     layerName: null,
     layerIndex: null,
-    nextPosition: []
+    nextPosition: [],
+    saveData: {
+      map: {},
+      current: {
+        layerName: null,
+        layerIndex: null,
+        nextPosition: []
+      }
+    }
   },
   getters: {
     layerName: (state) => state.layerName,
     layerIndex: (state) => state.layerIndex,
-    nextPosition: (state) => state.nextPosition
+    nextPosition: (state) => state.nextPosition,
+    saveData: (state) => state.saveData
   },
   mutations: {
     initFlour(state) {
@@ -38,9 +47,34 @@ const layer = {
       state.layerName = Tower[lastLayer].name
       state.map[lastLayer] || (state.map[lastLayer] = Tower[lastLayer].mapDoms)
       state.nextPosition = data.nextPosition
+    },
+    saveData(state, nextPosition) {
+      state.saveData.map = deepClone(state.map)
+      state.saveData.current.layerName = state.layerName
+      state.saveData.current.layerIndex = state.layerIndex
+      state.saveData.current.nextPosition = nextPosition
+    },
+    loadData(state) {
+      state.map = state.saveData.map
+      state.layerName = state.saveData.current.layerName
+      state.layerIndex = state.saveData.current.layerIndex
+      state.nextPosition = state.saveData.current.nextPosition
     }
   },
   actions: {}
+}
+
+const deepClone = (obj) => {
+  if (typeof obj !== 'object') return
+  let newObj = obj instanceof Array ? [] : {}
+  for (let key in obj) {
+    if (typeof obj[key] === 'object') {
+      newObj[key] = deepClone(obj[key])
+    } else {
+      newObj[key] = obj[key]
+    }
+  }
+  return newObj
 }
 
 export default layer

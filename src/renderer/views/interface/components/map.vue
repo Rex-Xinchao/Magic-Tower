@@ -48,7 +48,7 @@ export default {
   },
   components: { Dialogue, BattleLog },
   computed: {
-    ...mapGetters(['hero', 'layerIndex', 'items', 'monsterManual', 'nextPosition'])
+    ...mapGetters(['hero', 'layerIndex', 'items', 'monsterManual', 'nextPosition', 'saveData'])
   },
   mixins: [Battle, Move],
   watch: {

@@ -102,12 +102,14 @@ const move = {
       if (e.keyCode === 83) {
         // save
         // 保存存档
-        console.log(this.$store.state.layer.layerMap)
+        this.$store.commit('saveData', this.rolePosition)
         return
       }
       if (e.keyCode === 76) {
         // load
         // 读取存档
+        this.$store.commit('loadData')
+        this.initMap()
         return
       }
       if (e.keyCode === 32) {
