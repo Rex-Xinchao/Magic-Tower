@@ -6,6 +6,13 @@ import router from './router'
 import store from './store'
 import utils from './lib/utils'
 
+import 'element-ui/lib/theme-chalk/index.css'
+import element from './element/index'
+import { Message } from 'element-ui'
+Vue.use(element)
+
+Vue.prototype.$message = Message
+
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 Vue.http = Vue.prototype.$http = axios
 Vue.prototype.Utils = utils
