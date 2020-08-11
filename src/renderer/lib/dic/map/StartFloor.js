@@ -23,7 +23,6 @@ const StartFloor = {
   index: 'StartFloor',
   next: 'LazyOne',
   last: null,
-  originPosition: [6, 0],
   mapDoms: getMapDom(elementList, stairway, switchFance)
 }
 

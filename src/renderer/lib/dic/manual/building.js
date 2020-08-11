@@ -113,10 +113,9 @@ const building = {
     this.class = 'stairway_down'
     this.nextPosition = nextPosition
     this.func = (self, vm) => {
-      console.log(self.nextPosition)
       vm.$store.commit('nextFlour', {
-        mapList: vm.mapList,
-        rolePosition: self.nextPosition
+        currentMapList: vm.mapList,
+        nextPosition: self.nextPosition
       })
     }
   },
@@ -128,8 +127,8 @@ const building = {
     this.nextPosition = nextPosition
     this.func = (self, vm) => {
       vm.$store.commit('lastFlour', {
-        mapList: vm.mapList,
-        rolePosition: self.nextPosition
+        currentMapList: vm.mapList,
+        nextPosition: self.nextPosition
       })
     }
   }

@@ -35,7 +35,6 @@
 <script>
 import Move from '../mixins/move' // 移动模块
 import Battle from '../mixins/battle' // 战斗模块
-import Tower from '@lib/dic/map/tower' // 楼层信息
 import Dialogue from './dialogue'
 import BattleLog from './battleLog'
 import { mapGetters } from 'vuex'
@@ -49,7 +48,7 @@ export default {
   },
   components: { Dialogue, BattleLog },
   computed: {
-    ...mapGetters(['hero', 'layerIndex', 'items', 'monsterManual'])
+    ...mapGetters(['hero', 'layerIndex', 'items', 'monsterManual', 'nextPosition'])
   },
   mixins: [Battle, Move],
   watch: {
@@ -59,23 +58,10 @@ export default {
   },
   methods: {
     initMap() {
-      const Layer = Object.assign(Tower[this.layerIndex], this.$store.state.layer.layerMap[this.layerIndex]) // 获取当前楼层
-      const originPosition = Layer.originPosition // 初始位置
+      const originPosition = this.nextPosition // 初始位置
       this.setRolePosition(originPosition, this.hero) // 初始化角色位置
-      this.createMapList(Layer)
-    },
-    createMapList(Layer) {
-      // 创建地图
-      let mapList = this.$store.state.layer.map[this.layerIndex]
-      if (mapList) {
-        // 获取已经经过的map对象
-        this.mapList = mapList
-        this.setMapList(mapList)
-      } else {
-        mapList = Layer.mapDoms
-        this.mapList = mapList
-        this.setMapList(mapList)
-      }
+      this.mapList = this.$store.state.layer.map[this.layerIndex]
+      this.setMapList(this.mapList)
     },
     getBuildingClass(item) {
       if (item.class) {
@@ -100,6 +86,7 @@ export default {
     }
   },
   mounted() {
+    this.$store.commit('initFlour')
     this.initMap()
   }
 }

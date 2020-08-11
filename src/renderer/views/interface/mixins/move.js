@@ -20,7 +20,7 @@ const move = {
       this.role = role
     },
     // 设置地图对象
-    setMapList(list, layer) {
+    setMapList(list) {
       this.mapDetails = list
     },
     // 角色移动
@@ -98,6 +98,21 @@ const move = {
       if (e.keyCode === 39) {
         // 向右
         x += 1
+      }
+      if (e.keyCode === 83) {
+        // save
+        // 保存存档
+        console.log(this.$store.state.layer.layerMap)
+        return
+      }
+      if (e.keyCode === 76) {
+        // load
+        // 读取存档
+        return
+      }
+      if (e.keyCode === 32) {
+        // enter
+        return
       }
       this.move([x, y]) && (this.rolePosition = [x, y])
     }

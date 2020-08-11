@@ -31,7 +31,9 @@ const npc = {
             effect: () => {
               if (_this.finshed) {
                 _this.end = `我已经没有钥匙给你了`
+                vm.next()
               } else {
+                _this.finshed = true
                 vm.$store.dispatch('setRedKey', 1)
                 vm.$store.dispatch('setBlueKey', 1)
                 vm.$store.dispatch('setGreenKey', 1)
