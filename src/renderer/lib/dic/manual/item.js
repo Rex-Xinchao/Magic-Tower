@@ -195,6 +195,7 @@ const item = {
     this.EquipEffect = 'AppendHarm'
     this.Instruction = '一把破烂的武器，有极小几率追加5点伤害'
     this.EffectDescription = '追加5点伤害'
+    this.IsExist = true
     this.effect = (physicsHarm, magicHarm, luck = 0) => {
       let probability = Math.floor(Math.random() * (1000 - luck))
       console.log(probability)
