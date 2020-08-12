@@ -32,7 +32,7 @@ const monster = {
     this.Attack = 35
     this.Defense = 10
     this.MagicAttack = 0
-    this.MagicDefense = 10
+    this.MagicDefense = 2
     this.Dexterous = 0
     this.Luck = 0
     this.Money = 4
@@ -41,7 +41,16 @@ const monster = {
   },
   m_04: function() {
     this.Name = '史莱姆(黑)'
-    //
+    this.Health = 350
+    this.Attack = 50
+    this.Defense = 20
+    this.MagicAttack = 0
+    this.MagicDefense = 3
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 4
+    this.Experience = 8
+    this.isDead = false
   },
   m_05: function() {
     this.Name = '史莱姆(精英)'
