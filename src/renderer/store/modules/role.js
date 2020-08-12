@@ -62,8 +62,10 @@ const role = {
         store.state.attribute.Experience = store.state.attribute.Experience - store.state.attribute.NextLevelExperience
         store.state.level++
         store.state.Health = store.state.Health + 1000
-        store.state.Attack = store.state.Attack + 8
+        store.state.Attack = store.state.Attack + 6
         store.state.Defense = store.state.Defense + 8
+        store.state.MagicAttack = store.state.MagicAttack + 4
+        store.state.MagicDefense = store.state.MagicDefense + 8
       }
     },
     setHealth(store, Health) {

@@ -9,7 +9,7 @@ const monster = {
     this.MagicDefense = 1
     this.Dexterous = 0
     this.Luck = 0
-    this.Experience = 1
+    this.Experience = 2
     this.Money = 1
     this.isDead = false
   },
@@ -19,11 +19,11 @@ const monster = {
     this.Attack = 15
     this.Defense = 2
     this.MagicAttack = 0
-    this.MagicDefense = 2
+    this.MagicDefense = 1
     this.Dexterous = 0
     this.Luck = 0
-    this.Money = 2
-    this.Experience = 1
+    this.Money = 1
+    this.Experience = 2
     this.isDead = false
   },
   m_03: function() {
@@ -35,8 +35,8 @@ const monster = {
     this.MagicDefense = 10
     this.Dexterous = 0
     this.Luck = 0
-    this.Money = 5
-    this.Experience = 3
+    this.Money = 4
+    this.Experience = 8
     this.isDead = false
   },
   m_04: function() {
@@ -66,8 +66,8 @@ const monster = {
     this.MagicDefense = 5
     this.Dexterous = 0
     this.Luck = 0
-    this.Money = 3
-    this.Experience = 2
+    this.Money = 2
+    this.Experience = 4
     this.isDead = false
   },
   m_07: function() {
@@ -79,8 +79,8 @@ const monster = {
     this.MagicDefense = 15
     this.Dexterous = 0
     this.Luck = 0
-    this.Money = 10
-    this.Experience = 8
+    this.Money = 8
+    this.Experience = 16
     this.isDead = false
   },
   m_08: function() {
@@ -92,8 +92,8 @@ const monster = {
     this.MagicDefense = 50
     this.Dexterous = 0
     this.Luck = 0
-    this.Money = 25
-    this.Experience = 20
+    this.Money = 20
+    this.Experience = 28
     this.isDead = false
   },
   m_09: function() {
@@ -112,21 +112,21 @@ const monster = {
     this.MagicDefense = 0
     this.Dexterous = 0
     this.Luck = 0
-    this.Money = 5
-    this.Experience = 4
+    this.Money = 4
+    this.Experience = 8
     this.isDead = false
   },
   m_12: function() {
     this.Name = '骷髅士兵'
     this.Health = 150
-    this.Attack = 40
-    this.Defense = 20
+    this.Attack = 33
+    this.Defense = 18
     this.MagicAttack = 0
     this.MagicDefense = 0
     this.Dexterous = 0
     this.Luck = 0
-    this.Money = 8
-    this.Experience = 5
+    this.Money = 9
+    this.Experience = 18
     this.isDead = false
   },
   m_13: function() {
@@ -138,8 +138,8 @@ const monster = {
     this.MagicDefense = 0
     this.Dexterous = 0
     this.Luck = 0
-    this.Money = 15
-    this.Experience = 12
+    this.Money = 14
+    this.Experience = 20
     this.isDead = false
   },
   m_14: function() {
@@ -153,13 +153,13 @@ const monster = {
     this.Name = '初级法师'
     this.Health = 125
     this.Attack = 0
-    this.Defense = 15
+    this.Defense = 10
     this.MagicAttack = 50
     this.MagicDefense = 25
     this.Dexterous = 0
     this.Luck = 0
-    this.Money = 10
-    this.Experience = 7
+    this.Money = 15
+    this.Experience = 21
     this.isDead = false
   },
   m_17: function() {
@@ -172,7 +172,7 @@ const monster = {
     this.Dexterous = 0
     this.Luck = 0
     this.Money = 30
-    this.Experience = 25
+    this.Experience = 30
     this.isDead = false
   },
   m_21: function() {
@@ -184,8 +184,8 @@ const monster = {
     this.MagicDefense = 35
     this.Dexterous = 0
     this.Luck = 0
-    this.Money = 13
-    this.Experience = 10
+    this.Money = 15
+    this.Experience = 15
     this.isDead = false
   },
   m_22: function() {
@@ -197,8 +197,8 @@ const monster = {
     this.MagicDefense = 55
     this.Dexterous = 0
     this.Luck = 0
-    this.Money = 15
-    this.Experience = 15
+    this.Money = 20
+    this.Experience = 20
     this.isDead = false
   },
   m_23: function() {
