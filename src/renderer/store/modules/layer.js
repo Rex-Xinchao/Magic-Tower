@@ -55,7 +55,7 @@ const layer = {
       state.saveData.current.nextPosition = nextPosition
     },
     loadData(state) {
-      state.map = state.saveData.map
+      state.map = deepClone(state.saveData.map)
       state.layerName = state.saveData.current.layerName
       state.layerIndex = state.saveData.current.layerIndex
       state.nextPosition = state.saveData.current.nextPosition
@@ -66,6 +66,7 @@ const layer = {
 
 const deepClone = (obj) => {
   if (typeof obj !== 'object') return
+  if (obj === null) return null
   let newObj = obj instanceof Array ? [] : {}
   for (let key in obj) {
     if (typeof obj[key] === 'object') {

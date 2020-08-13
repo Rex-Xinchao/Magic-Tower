@@ -95,7 +95,7 @@ const item = {
     this.IsExist = true
     this.effect = (vm, self) => {
       self.IsExist = false
-      vm.$store.commit('MagicDefense', 3)
+      vm.$store.commit('addMagicDefense', 3)
     }
   },
   i_09: function() {
@@ -155,7 +155,7 @@ const item = {
     this.IsExist = true
     this.effect = (vm, self) => {
       self.IsExist = false
-      vm.$store.commit('MagicDefense', 6)
+      vm.$store.commit('addMagicDefense', 6)
     }
   },
   i_14: function() {
@@ -198,7 +198,6 @@ const item = {
     this.IsExist = true
     this.effect = (physicsHarm, magicHarm, luck = 0) => {
       let probability = Math.floor(Math.random() * (1000 - luck))
-      console.log(probability)
       if (probability === 1) {
         return {
           addHarm: 5,
@@ -225,18 +224,11 @@ const item = {
     this.EquipEffect = 'AppendHarm'
     this.Instruction = '1'
     this.EffectDescription = '追加1点伤害'
+    this.IsExist = true
     this.effect = (physicsHarm, magicHarm, luck = 0) => {
-      let probability = Math.floor(Math.random() * (1000 - luck))
-      if (probability === 1) {
-        return {
-          addHarm: 1,
-          effect: true
-        }
-      } else {
-        return {
-          addHarm: 0,
-          effect: false
-        }
+      return {
+        addHarm: 1,
+        effect: true
       }
     }
   },
@@ -253,6 +245,7 @@ const item = {
     this.EquipEffect = null
     this.Instruction = null
     this.EffectDescription = null
+    this.IsExist = true
     this.effect = (physicsHarm, magicHarm, luck = 0) => {
       return null
     }
@@ -261,6 +254,7 @@ const item = {
     this.Id = 'e_91'
     this.Name = '首领钥匙'
     this.Type = 'key'
+    this.IsExist = true
     this.effect = (vm) => {
       // 打开首领boss门
     }

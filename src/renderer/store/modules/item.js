@@ -8,7 +8,16 @@ const item = {
       GreenKey: 0, // 绿钥匙数量，用于开启绿色门
       BlueKey: 0 // 蓝钥匙数量，用于开启蓝色门
     },
-    tools: []
+    tools: [],
+    saveData: {
+      items: {
+        Money: 0, // 金钱： 可以购买属性和道具
+        RedKey: 0, // 红钥匙数量，用于开启红色门
+        GreenKey: 0, // 绿钥匙数量，用于开启绿色门
+        BlueKey: 0 // 蓝钥匙数量，用于开启蓝色门
+      },
+      tools: []
+    }
   },
   getters: {
     items: (state) => state.items,
@@ -56,11 +65,23 @@ const item = {
     },
     setBlueKey(state, num) {
       state.items.BlueKey += num
+    },
+    saveItemData(state) {
+      state.saveData = JSON.parse(
+        JSON.stringify({
+          items: state.items,
+          tools: state.tools
+        })
+      )
+    },
+    loadItemData(state) {
+      state.items = JSON.parse(JSON.stringify(state.saveData.items))
+      state.tools = JSON.parse(JSON.stringify(state.saveData.tools))
     }
   },
   actions: {
-    setMoney(store, Money) {
-      store.state.items.Money = Money
+    vv(store, Money) {
+      store.state.items.Money += Money
     },
     setRedKey(store, RedKey) {
       store.state.items.RedKey += RedKey

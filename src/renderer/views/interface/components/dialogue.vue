@@ -30,7 +30,7 @@ export default {
   methods: {
     showDialog(npc) {
       this.show = true
-      this.event = npc.dialogue(this)
+      this.event = npc.dialogue(this, npc)
       this.npcName = npc.Name
       this.next()
     },
@@ -76,9 +76,10 @@ export default {
   .select {
     width: 60%;
     margin: 0 auto;
-    padding: 4px 20px;
-    border: 1px solid white;
+    padding: 6px 20px;
+    border: 1px solid black;
     cursor: pointer;
+    border-radius: 6px;
   }
 }
 
@@ -90,5 +91,9 @@ export default {
   height: 24px;
   line-height: 24px;
   cursor: pointer;
+  background-color: #409eff;
+  text-align: center;
+  border-radius: 4px;
+  color: white;
 }
 </style>

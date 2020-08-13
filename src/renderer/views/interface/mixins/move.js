@@ -28,7 +28,7 @@ const move = {
       let move = true
       if (x < 0 || x >= 12 || y < 0 || y >= 10) return false
       const currentMap = this.mapDetails[y][x]
-      if (currentMap.monsterDetail && !currentMap.isDead) {
+      if (currentMap.monsterDetail && currentMap.isDead === false) {
         // 存在活的怪物
         this.monster = { ...currentMap.monsterDetail } // 设置怪物对象
         const Health = this.role.Health
@@ -50,6 +50,7 @@ const move = {
         if (currentMap.toolDetail.Type === 'tool') {
           currentMap.toolDetail.effect(this, currentMap)
         } else {
+          currentMap.IsExist = false
           this.$store.commit('getEquipment', currentMap.toolDetail.Id)
         }
         currentMap.isToolExist = false
@@ -103,12 +104,18 @@ const move = {
       if (e.keyCode === 83) {
         // save
         this.$store.commit('saveData', this.rolePosition)
-        this.$message.success('读存成功')
+        this.$store.commit('saveItemData')
+        this.$store.commit('saveEquipData')
+        this.$store.commit('saveRoleData')
+        this.$message.success('存档成功')
         return
       }
       if (e.keyCode === 76) {
         // load
         this.$store.commit('loadData')
+        this.$store.commit('loadRoleData')
+        this.$store.commit('loadItemData')
+        this.$store.commit('loadEquipData')
         this.initMap()
         this.$message.success('读档成功')
         return

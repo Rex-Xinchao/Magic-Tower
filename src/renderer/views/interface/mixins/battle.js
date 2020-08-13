@@ -10,7 +10,7 @@ const Battle = {
     }
   },
   computed: {
-    ...mapGetters(['addition', 'equipped', 'skill'])
+    ...mapGetters(['addition', 'equipped', 'skill', 'items'])
   },
   methods: {
     // 战斗
@@ -68,19 +68,13 @@ const Battle = {
       let magicAttack = this.getValue(self, 'MagicAttack')
       let physicsDefense = this.getValue(enemy, 'Defense')
       let magicDefense = this.getValue(enemy, 'MagicDefense')
-      let physicsHarm =
-        physicsAttack - physicsDefense > 0 ? physicsAttack - physicsDefense : 0
-      let magicHarm =
-        magicAttack - magicDefense > 0 ? magicAttack - magicDefense : 0
-      let frequency =
-        parseInt(self.Dexterous / enemy.Dexterous) > 0
-          ? parseInt(self.Dexterous / enemy.Dexterous)
-          : 1
+      let physicsHarm = physicsAttack - physicsDefense > 0 ? physicsAttack - physicsDefense : 0
+      let magicHarm = magicAttack - magicDefense > 0 ? magicAttack - magicDefense : 0
+      let frequency = parseInt(self.Dexterous / enemy.Dexterous) > 0 ? parseInt(self.Dexterous / enemy.Dexterous) : 1
       for (let i = 0; i < frequency; i++) {
         let harm = this.getEquipmentEffect(physicsHarm, magicHarm, self, enemy)
         enemy.attribute.Health -= harm
-        enemy.attribute.Health =
-          enemy.attribute.Health < 0 ? 0 : enemy.attribute.Health
+        enemy.attribute.Health = enemy.attribute.Health < 0 ? 0 : enemy.attribute.Health
         this.attackLogging(self.attribute, enemy.attribute, harm) // 记录攻击日志
       }
       return enemy.attribute.Health > 0
@@ -88,7 +82,9 @@ const Battle = {
     getValue(self, key) {
       let value = self.attribute[key]
       for (let k in self.addition) {
-        value += self.addition[k]
+        if (key === k) {
+          value += self.addition[k]
+        }
       }
       return value
     },
@@ -101,7 +97,7 @@ const Battle = {
           })
         self.equipped.forEach((e) => {
           if (e.effect && e.Type === 'arms') {
-            let { addHarm, effect } = e.effect(physicsHarm, magicHarm, 998)
+            let { addHarm, effect } = e.effect(physicsHarm, magicHarm, self.attribute.luck)
             harm += addHarm
             effect && this.addEquipmentEffectLog(e.Name, e.EffectDescription)
           }
@@ -114,7 +110,7 @@ const Battle = {
         enemy.equipped.length > 1 &&
           enemy.equipped.forEach((e) => {
             if (e.effect && e.Type === 'armor') {
-              let { addHarm, effect } = e.effect(physicsHarm, magicHarm, 998)
+              let { addHarm, effect } = e.effect(physicsHarm, magicHarm, self.attribute.luck)
               harm += addHarm
               effect && this.addEquipmentEffectLog(e.Name, e.EffectDescription)
             }
@@ -128,6 +124,7 @@ const Battle = {
         return
       }
       this.hero.Experience += this.monster.Experience
+      this.items.Money += this.monster.Money
       if (this.hero.Experience >= this.hero.NextLevelExperience) {
         this.$store.commit('levelUp', '')
       }
@@ -138,13 +135,8 @@ const Battle = {
       this.turn++
     },
     attackLogging(RoleOne, RoleTwo, harm) {
-      let txt =
-        RoleTwo.Health > 0
-          ? `${RoleTwo.Name} 还剩下${RoleTwo.Health}点生命。\n`
-          : `${RoleTwo.Name} 死亡。\n`
-      this.log.push(
-        `${RoleOne.Name} 攻击了 ${RoleTwo.Name} 1下，造成了${harm}点伤害,${txt}`
-      )
+      let txt = RoleTwo.Health > 0 ? `${RoleTwo.Name} 还剩下${RoleTwo.Health}点生命。\n` : `${RoleTwo.Name} 死亡。\n`
+      this.log.push(`${RoleOne.Name} 攻击了 ${RoleTwo.Name} 1下，造成了${harm}点伤害,${txt}`)
     },
     addEquipmentEffectLog(name, effect) {
       this.log.push(`${name}效果发动成功，${effect}。\n`)

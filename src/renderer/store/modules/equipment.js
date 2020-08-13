@@ -11,7 +11,8 @@ const equipment = {
       Luck: 0
     },
     equipments: [],
-    equipped: []
+    equipped: [],
+    saveData: {}
   },
   getters: {
     equipments: (state) => state.equipments,
@@ -81,6 +82,20 @@ const equipment = {
         Dexterous: Dexterous,
         Luck: Luck
       }
+    },
+    saveEquipData(state) {
+      state.saveData = JSON.parse(
+        JSON.stringify({
+          addition: state.addition,
+          equipments: state.equipments,
+          equipped: state.equipped
+        })
+      )
+    },
+    loadEquipData(state) {
+      state.addition = JSON.parse(JSON.stringify(state.saveData.addition))
+      state.equipments = JSON.parse(JSON.stringify(state.saveData.equipments))
+      state.equipped = JSON.parse(JSON.stringify(state.saveData.equipped))
     }
   },
   actions: {}

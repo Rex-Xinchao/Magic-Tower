@@ -15,6 +15,7 @@ const monster = {
   },
   m_02: function() {
     this.Name = '史莱姆(绿)'
+    this.manualNumber = 1
     this.Health = 70
     this.Attack = 15
     this.Defense = 2
@@ -28,6 +29,7 @@ const monster = {
   },
   m_03: function() {
     this.Name = '史莱姆(红)'
+    this.manualNumber = 1
     this.Health = 200
     this.Attack = 35
     this.Defense = 10
@@ -41,6 +43,7 @@ const monster = {
   },
   m_04: function() {
     this.Name = '史莱姆(黑)'
+    this.manualNumber = 1
     this.Health = 350
     this.Attack = 50
     this.Defense = 20
@@ -68,6 +71,7 @@ const monster = {
   },
   m_06: function() {
     this.Name = '小蝙蝠'
+    this.manualNumber = 1
     this.Health = 100
     this.Attack = 20
     this.Defense = 5
@@ -81,6 +85,7 @@ const monster = {
   },
   m_07: function() {
     this.Name = '大蝙蝠'
+    this.manualNumber = 1
     this.Health = 150
     this.Attack = 35
     this.Defense = 30
@@ -94,6 +99,7 @@ const monster = {
   },
   m_08: function() {
     this.Name = '红蝙蝠'
+    this.manualNumber = 1
     this.Health = 550
     this.Attack = 170
     this.Defense = 100
@@ -114,6 +120,7 @@ const monster = {
   },
   m_11: function() {
     this.Name = '骷髅小兵'
+    this.manualNumber = 1
     this.Health = 110
     this.Attack = 25
     this.Defense = 5
@@ -122,11 +129,12 @@ const monster = {
     this.Dexterous = 0
     this.Luck = 0
     this.Money = 4
-    this.Experience = 8
+    this.Experience = 9
     this.isDead = false
   },
   m_12: function() {
     this.Name = '骷髅士兵'
+    this.manualNumber = 1
     this.Health = 150
     this.Attack = 33
     this.Defense = 18
@@ -140,6 +148,7 @@ const monster = {
   },
   m_13: function() {
     this.Name = '持盾骷髅'
+    this.manualNumber = 1
     this.Health = 400
     this.Attack = 90
     this.Defense = 50
@@ -153,6 +162,7 @@ const monster = {
   },
   m_14: function() {
     this.Name = '骷髅队长'
+    this.manualNumber = 1
   },
   m_15: function() {
     this.Name = '骷髅(精英)'
@@ -160,6 +170,7 @@ const monster = {
   },
   m_16: function() {
     this.Name = '初级法师'
+    this.manualNumber = 1
     this.Health = 125
     this.Attack = 0
     this.Defense = 10
@@ -168,11 +179,12 @@ const monster = {
     this.Dexterous = 0
     this.Luck = 0
     this.Money = 15
-    this.Experience = 21
+    this.Experience = 24
     this.isDead = false
   },
   m_17: function() {
     this.Name = '高级法师'
+    this.manualNumber = 1
     this.Health = 100
     this.Attack = 0
     this.Defense = 35
@@ -186,6 +198,7 @@ const monster = {
   },
   m_21: function() {
     this.Name = '兽面人(蓝)'
+    this.manualNumber = 1
     this.Health = 300
     this.Attack = 75
     this.Defense = 45
@@ -199,6 +212,7 @@ const monster = {
   },
   m_22: function() {
     this.Name = '兽面人(绿)'
+    this.manualNumber = 1
     this.Health = 500
     this.Attack = 115
     this.Defense = 65
@@ -212,6 +226,7 @@ const monster = {
   },
   m_23: function() {
     this.Name = '兽面人(红)'
+    this.manualNumber = 1
     this.Health = 700
     this.Attack = 250
     this.Defense = 125
@@ -225,6 +240,7 @@ const monster = {
   },
   m_24: function() {
     this.Name = '兽面武士'
+    this.manualNumber = 1
     this.Health = 900
     this.Attack = 450
     this.Defense = 300
@@ -241,6 +257,7 @@ const monster = {
   },
   m_26: function() {
     this.Name = '初级卫兵'
+    this.manualNumber = 1
     this.Health = 450
     this.Attack = 150
     this.Defense = 90
@@ -254,6 +271,7 @@ const monster = {
   },
   m_27: function() {
     this.Name = '中级卫兵'
+    this.manualNumber = 1
     this.Health = 850
     this.Attack = 350
     this.Defense = 200
@@ -267,6 +285,7 @@ const monster = {
   },
   m_28: function() {
     this.Name = '高级卫兵'
+    this.manualNumber = 1
     this.Health = 1500
     this.Attack = 560
     this.Defense = 460

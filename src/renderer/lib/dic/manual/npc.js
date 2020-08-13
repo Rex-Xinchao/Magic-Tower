@@ -4,10 +4,10 @@ const npc = {
     this.Name = '天使'
     this.description = '菜逼勇者?'
     this.finshed = false
-    this.dialogue = function(vm) {
-      return dialogue(vm)
+    this.dialogue = function(vm, self) {
+      return dialogue(vm, self)
     }
-    function* dialogue(vm) {
+    function* dialogue(vm, self) {
       yield {
         content: '你醒了，勇者？',
         selectList: null,
@@ -29,11 +29,11 @@ const npc = {
           {
             select: '收下钥匙',
             effect: () => {
-              if (_this.finshed) {
+              if (self.finshed) {
                 _this.end = `我已经没有钥匙给你了`
                 vm.next()
               } else {
-                _this.finshed = true
+                self.finshed = true
                 vm.$store.dispatch('setRedKey', 1)
                 vm.$store.dispatch('setBlueKey', 1)
                 vm.$store.dispatch('setGreenKey', 1)
@@ -45,7 +45,7 @@ const npc = {
         next: false
       }
       yield {
-        content: _this.end,
+        content: self.end,
         selectList: null,
         next: false
       }
