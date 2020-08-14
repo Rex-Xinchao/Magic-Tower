@@ -14,7 +14,8 @@ const role = {
       MagicDefense: 10, // 魔法防御
       Dexterous: 0, // 灵巧：影响双方的出手顺序（灵巧高的一方先手,灵巧相同勇者优先攻击，对不起勇者就是可以为所欲为），当灵巧（自身）是灵巧（对方）的倍数时，可每回合多攻击多出倍数的次数
       Luck: 0, // 幸运：一定几率获取的道具数量翻倍，增加装备效果的生效几率
-      MonsterManual: []
+      MonsterManual: [],
+      isSaved_DX: false
     },
     saveData: {
       Level: 1,

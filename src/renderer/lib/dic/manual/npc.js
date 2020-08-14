@@ -98,12 +98,16 @@ const npc = {
     }
   },
   c_03: function() {
-    this.Name = '消耗品商人'
-    this.description = '你要看一下我的大宝贝吗?'
+    this.Name = '小叮当'
+    this.description = '百宝库的小叮当！'
     this.dialogue = function(vm) {
-      return dialogue(vm)
+      if (vm.$store.state.role.attribute.isSaved_DX) {
+        return dialogueOne(vm)
+      } else {
+        return dialogueTwo(vm)
+      }
     }
-    function* dialogue(vm) {
+    function* dialogueOne(vm) {
       yield {
         content: '欢迎冒险家，你要买些什么吗？',
         selectList: null,
@@ -155,10 +159,39 @@ const npc = {
         next: false
       }
     }
+    function* dialogueTwo(vm) {
+      yield {
+        content: '你好，请问你有看到野比大熊吗？',
+        selectList: null,
+        next: true
+      }
+      yield {
+        content: '我们在使用时光机的时候出了意外，来到了这里',
+        selectList: null,
+        next: true
+      }
+      yield {
+        content: '在登陆的出了意外，你能帮我找到他吗？',
+        selectList: null,
+        next: false
+      }
+    }
   },
   c_04: function() {
     this.Name = '野比大熊'
-    this.description = '小叮当快救我'
+    this.description = '小叮当快救我！'
+    this.finshed = false
+    this.dialogue = function(vm, self) {
+      vm.$store.state.role.attribute.isSaved_DX = true
+      return dialogue(vm, self)
+    }
+    function* dialogue(vm, self) {
+      yield {
+        content: '谢谢你久了我，勇者！',
+        selectList: null,
+        next: false
+      }
+    }
   }
 }
 
