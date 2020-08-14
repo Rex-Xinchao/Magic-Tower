@@ -59,11 +59,22 @@ const monster = {
     this.Name = '史莱姆(精英)'
     // 特殊效果 恢复
     // 回合结束恢复1点生命
+    this.manualNumber = 1
+    this.Health = 800
+    this.Attack = 90
+    this.Defense = 60
+    this.MagicAttack = 0
+    this.MagicDefense = 15
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 50
+    this.Experience = 40
+    this.isDead = false
     this.skillType = 'afterBattle'
     this.skill = (hero, monster) => {
       if (monster.Health <= 0) return `${monster.Name}特殊技能发动失败`
       const effectType = 'Health'
-      const effectNum = 1
+      const effectNum = 8
       const effectLog = `${monster.Name}特殊技能生效，恢复了${effectNum}点生命`
       monster[effectType] += effectNum
       return effectLog
@@ -326,6 +337,34 @@ const monster = {
     // 特殊技能 百分比免伤
   },
   m_31: function() {
+    this.Name = '石像守卫'
+    this.manualNumber = 1
+    this.Health = 500
+    this.Attack = 70
+    this.Defense = 100
+    this.MagicAttack = 0
+    this.MagicDefense = 0
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 10
+    this.Experience = 18
+    this.isDead = false
+  },
+  m_32: function() {
+    this.Name = '石像法师'
+    this.manualNumber = 1
+    this.Health = 300
+    this.Attack = 10
+    this.Defense = 100
+    this.MagicAttack = 95
+    this.MagicDefense = 0
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 12
+    this.Experience = 22
+    this.isDead = false
+  },
+  m_36: function() {
     this.Name = '蓝武士'
     this.Health = 1200
     this.Attack = 980
@@ -338,7 +377,7 @@ const monster = {
     this.Experience = 75
     this.isDead = false
   },
-  m_32: function() {
+  m_37: function() {
     this.Name = '绿武士'
     this.Health = 2500
     this.Attack = 900

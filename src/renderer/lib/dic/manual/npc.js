@@ -155,6 +155,10 @@ const npc = {
         next: false
       }
     }
+  },
+  c_04: function() {
+    this.Name = '野比大熊'
+    this.description = '小叮当快救我'
   }
 }
 
