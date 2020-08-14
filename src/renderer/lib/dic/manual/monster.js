@@ -100,6 +100,20 @@ const monster = {
   m_08: function() {
     this.Name = '红蝙蝠'
     this.manualNumber = 1
+    this.Health = 260
+    this.Attack = 120
+    this.Defense = 40
+    this.MagicAttack = 0
+    this.MagicDefense = 20
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 12
+    this.Experience = 22
+    this.isDead = false
+  },
+  m_09: function() {
+    this.Name = '黑蝙蝠'
+    this.manualNumber = 1
     this.Health = 550
     this.Attack = 170
     this.Defense = 100
@@ -110,9 +124,6 @@ const monster = {
     this.Money = 20
     this.Experience = 28
     this.isDead = false
-  },
-  m_09: function() {
-    this.Name = '黑蝙蝠'
   },
   m_10: function() {
     this.Name = '蝙蝠(精英)'

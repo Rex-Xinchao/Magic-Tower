@@ -1,5 +1,5 @@
 <template>
-  <el-dialog title="战斗情况" :visible.sync="show" width="60%" :before-close="close" :modal-append-to-body="false">
+  <el-dialog title="战斗情况" :visible.sync="show" width="80%" :before-close="close" :modal-append-to-body="false">
     <span>
       <div class="battle-log-container">
         <p v-for="(item, index) in log" :key="index">{{ item }}</p>
