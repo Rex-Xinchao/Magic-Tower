@@ -58,7 +58,7 @@ const monster = {
   m_05: function() {
     this.Name = '史莱姆(精英)'
     // 特殊效果 恢复
-    // 回合结束恢复1点生命
+    // 回合结束恢复8点生命
     this.manualNumber = 1
     this.Health = 800
     this.Attack = 90
@@ -185,6 +185,16 @@ const monster = {
   m_14: function() {
     this.Name = '骷髅队长'
     this.manualNumber = 1
+    this.Health = 500
+    this.Attack = 115
+    this.Defense = 70
+    this.MagicAttack = 0
+    this.MagicDefense = 25
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 18
+    this.Experience = 24
+    this.isDead = false
   },
   m_15: function() {
     this.Name = '骷髅(精英)'
@@ -205,7 +215,7 @@ const monster = {
     this.isDead = false
   },
   m_17: function() {
-    this.Name = '高级法师'
+    this.Name = '中级法师'
     this.manualNumber = 1
     this.Health = 100
     this.Attack = 0
@@ -216,6 +226,20 @@ const monster = {
     this.Luck = 0
     this.Money = 20
     this.Experience = 28
+    this.isDead = false
+  },
+  m_18: function() {
+    this.Name = '高级法师'
+    this.manualNumber = 1
+    this.Health = 200
+    this.Attack = 0
+    this.Defense = 70
+    this.MagicAttack = 200
+    this.MagicDefense = 200
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 30
+    this.Experience = 35
     this.isDead = false
   },
   m_21: function() {
@@ -362,6 +386,20 @@ const monster = {
     this.Luck = 0
     this.Money = 12
     this.Experience = 22
+    this.isDead = false
+  },
+  m_33: function() {
+    this.Name = '石像鬼'
+    this.manualNumber = 1
+    this.Health = 800
+    this.Attack = 100
+    this.Defense = 100
+    this.MagicAttack = 100
+    this.MagicDefense = 0
+    this.Dexterous = 0
+    this.Luck = 0
+    this.Money = 40
+    this.Experience = 40
     this.isDead = false
   },
   m_36: function() {
