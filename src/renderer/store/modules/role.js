@@ -43,6 +43,9 @@ const role = {
     },
     levelUp(state) {
       state.attribute.Level++
+      if (state.attribute.Level % 5 === 0) {
+        state.attribute.NextLevelExperience += 100
+      }
       state.attribute.Experience -= state.attribute.NextLevelExperience
       state.attribute.Health += 1000
       state.attribute.Attack += 6
